@@ -23,16 +23,16 @@ dns:
     - 0.0.0.0
   port: 8553
   anonymize_client_ip: false
-  ratelimit: 20
+  ratelimit: 0
   ratelimit_subnet_len_ipv4: 24
   ratelimit_subnet_len_ipv6: 56
   ratelimit_whitelist: []
   refuse_any: true
   upstream_dns:
-    - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-    - https://doh.360.cn
-    - 180.76.76.76
+    - https://doh.pub/dns-query
+    - https://dns.114dns.com/dns-query
+    - https://dns.cnnic.cn/dns-query
   upstream_dns_file: ""
   bootstrap_dns:
     - 9.9.9.10
@@ -51,7 +51,7 @@ dns:
   trusted_proxies:
     - 127.0.0.0/8
     - ::1/128
-  cache_size: 4194304
+  cache_size: 41943040
   cache_ttl_min: 0
   cache_ttl_max: 0
   cache_optimistic: false
@@ -158,7 +158,9 @@ whitelist_filters:
     url: https://raw.githubusercontent.com/BlueSkyXN/AdGuardHomeRules/master/ok.txt
     name: 白名单2
     id: 1737214025
-user_rules: []
+user_rules:
+  - '||blog.csdn.net^$important'
+  - '||www.csdn.net^$important'
 dhcp:
   enabled: false
   interface_name: ""
