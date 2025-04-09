@@ -200,16 +200,17 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
 
 ### **国内广告拦截白名单**必填白名单
 白名单1
-https://raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/allow.txt
+     https://raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/allow.txt
 白名单2
-https://raw.githubusercontent.com/BlueSkyXN/AdGuardHomeRules/master/ok.txt
+     https://raw.githubusercontent.com/BlueSkyXN/AdGuardHomeRules/master/ok.txt
 ### **国内广告拦截规则**
 
 百万ADH广告拦截过滤规则
+
         https://raw.githubusercontent.com/BlueSkyXN/AdGuardHomeRules/master/all.txt
 DNS 拦截
-        https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdns.txt
 
+        https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdns.txt
 目前中文区命中率最高的广告过滤列表，实现了精确的广告屏蔽和隐私保护屏蔽广告域名、电视盒子广告、APP内置广告
 
         https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-easylist.txt
@@ -235,12 +236,17 @@ CJX’s Annoyance List (去自推列表)
 
 ### **国外广告拦截规则**
 StevenBlack – 屏蔽国外网站广告-国外维护
+
         https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 AdGuard DNS filter
+
         https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt
 EasyList-去除国际网页中大多数广告，包括不需要的框架、图像和对象
+
         https://easylist-downloads.adblockplus.org/easylist.txt
 屏蔽网站的 cookies 相关的警告
+
         https://www.i-dont-care-about-cookies.eu/abp/
 屏蔽美欧地区英文网站相关的广告
+
         https://winhelp2002.mvps.org/hosts.txt
