@@ -227,3 +227,15 @@ CJX’s Annoyance List (去自推列表)
 知乎过滤器
 
         https://cdn.jsdelivr.net/gh/zsakvo/AdGuard-Custom-Rule@master/rule/zhihu-strict.txt
+
+### **国外广告拦截规则**
+StevenBlack – 屏蔽国外网站广告-国外维护
+        https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+AdGuard DNS filter
+        https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt
+EasyList-去除国际网页中大多数广告，包括不需要的框架、图像和对象
+        https://easylist-downloads.adblockplus.org/easylist.txt
+屏蔽网站的 cookies 相关的警告
+        https://www.i-dont-care-about-cookies.eu/abp/
+屏蔽美欧地区英文网站相关的广告
+        https://winhelp2002.mvps.org/hosts.txt
