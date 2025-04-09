@@ -46,44 +46,55 @@
 腾讯 DNS 基于 BGP Anycast 技术，不论用户身在何地，都可就近访问服务。支持谷歌 ECS 协议，配合 DNSPod 权威解析，可以给用户提供出最准确的解析结果，承诺不劫持解析结果。
 
 IPv4：119.29.29.29
-  DoH：https://doh.pub/dns-query
-  DoH：https://1.12.12.12/dns-query
-DoH：https://120.53.53.53/dns-query
-DoH：https://sm2.doh.pub/dns-query (国密)
-DoT：dot.pub
-DoT：1.12.12.12
-DoT：120.53.53.53
+
+     DoH：https://doh.pub/dns-query
+     DoH：https://1.12.12.12/dns-query
+     DoH：https://120.53.53.53/dns-query
+     DoH：https://sm2.doh.pub/dns-query (国密)
+     DoT：dot.pub
+     DoT：1.12.12.12
+     DoT：120.53.53.53
+     
 1.2 阿里 DNS
 阿里 DNS 线路支持包括电信、移动、联通、鹏博士、广电网、教育网及海外 150 个国家或地域，支持用户 ECS 扩展技术，智能解析；支持 DoT/DoH 协议，保护用户隐私，安全防劫持。
 
-IPv4：223.5.5.5
-IPv4：223.6.6.6
-DoH：https://223.5.5.5/dns-query
-DoH：https://223.6.6.6/dns-query
-DoH：https://dns.alidns.com/dns-query
-DoT：dns.alidns.com
+     IPv4：223.5.5.5
+     IPv4：223.6.6.6
+     DoH：https://223.5.5.5/dns-query
+     DoH：https://223.6.6.6/dns-query
+     DoH：https://dns.alidns.com/dns-query
+     DoT：dns.alidns.com
 1.3 360DNS
-DoH：https://doh.360.cn/dns-query	
-DoT：dot.360.cn
+
+     DoH：https://doh.360.cn/dns-query	
+     DoT：dot.360.cn
+     
 1.4 CFIEC DNS
-DoH：https://dns.cfiec.net/dns-query	
-DoT：dns.cfiec.net
+
+     DoH：https://dns.cfiec.net/dns-query	
+     DoT：dns.cfiec.net
 1.5 红鱼rubyfish DNS
-DoH：https://rubyfish.cn/dns-query
-DoH：https://dns.rubyfish.cn/dns-query
+
+     DoH：https://rubyfish.cn/dns-query
+     DoH：https://dns.rubyfish.cn/dns-query
+     
 DoT：dns.rubyfish.cn
+
 1.6 👍iQDNS
 iQDNS 本着隐私至上的根本成立，任何终端访问 iQDNS 的全部不记录日志，并且由网络层得到的网络请求 Logs 也会 1 小时清空一次。为了保持服务稳定，本服务已经设置了黑名单 屏蔽了对 gov 影响极差的网站。（返回空地址，无污染）不会影响正常人使用。本 DNS 保证支持期限为 2 年，即 2022 年 12 月 31 日。（只是保证时效 不是一定关闭）
 
 #I节点不支持自选上游功能
-DoH：https://i.passcloud.xyz/dns-query
-DoT：i.passcloud.xyz:5432
-DoQ：quic://i.passcloud.xyz:784
+
+     DoH：https://i.passcloud.xyz/dns-query
+     DoT：i.passcloud.xyz:5432
+     DoQ：quic://i.passcloud.xyz:784
  
 #A节点支持自选上游功能
-DoH：https://a.passcloud.xyz/dns-query
-DoQ：quic://a.passcloud.xyz:784
-DoT：tls://a.passcloud.xyz:5432
+
+     DoH：https://a.passcloud.xyz/dns-query
+     DoQ：quic://a.passcloud.xyz:784
+     DoT：tls://a.passcloud.xyz:5432
+
 1.7 台湾Quad 101
 IPv4：101.101.101.101	
 IPv4：101.102.103.104
