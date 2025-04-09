@@ -181,10 +181,13 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
      DoH：https://doh.sb/dns-query
      DoT：dot.sb
 2.8 PowerDNS
+
      DoH：https://doh.powerdns.org
 2.9 日本 IIJ DNS
+
      DoH：https://public.dns.iij.jp/dns-query
 2.10 日本 Blahdns
+
      DoH：https://doh-jp.blahdns.com/dns-query
 
 ---
