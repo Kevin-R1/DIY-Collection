@@ -200,8 +200,10 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
 
 ### **国内广告拦截白名单**必填白名单
 白名单1
+
      https://raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/allow.txt
 白名单2
+
      https://raw.githubusercontent.com/BlueSkyXN/AdGuardHomeRules/master/ok.txt
 ### **国内广告拦截规则**
 
