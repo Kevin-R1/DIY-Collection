@@ -175,6 +175,7 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
      DoT：dns-family.adguard.com
      DoQ：quic://dns-family.adguard.com
 2.7 DNS.SB
+
      IPv4：185.222.222.222
      IPv4：45.11.45.11
      DoH：https://doh.dns.sb/dns-query
