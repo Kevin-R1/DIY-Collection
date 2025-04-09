@@ -66,34 +66,8 @@
 
      DoH：https://doh.360.cn/dns-query	
      DoT：dot.360.cn
-     
-1.4 CFIEC DNS
 
-     DoH：https://dns.cfiec.net/dns-query	
-     DoT：dns.cfiec.net
-1.5 红鱼rubyfish DNS
-
-     DoH：https://rubyfish.cn/dns-query
-     DoH：https://dns.rubyfish.cn/dns-query
-     
-DoT：dns.rubyfish.cn
-
-1.6 👍iQDNS
-iQDNS 本着隐私至上的根本成立，任何终端访问 iQDNS 的全部不记录日志，并且由网络层得到的网络请求 Logs 也会 1 小时清空一次。为了保持服务稳定，本服务已经设置了黑名单 屏蔽了对 gov 影响极差的网站。（返回空地址，无污染）不会影响正常人使用。本 DNS 保证支持期限为 2 年，即 2022 年 12 月 31 日。（只是保证时效 不是一定关闭）
-
-#I节点不支持自选上游功能
-
-     DoH：https://i.passcloud.xyz/dns-query
-     DoT：i.passcloud.xyz:5432
-     DoQ：quic://i.passcloud.xyz:784
- 
-#A节点支持自选上游功能
-
-     DoH：https://a.passcloud.xyz/dns-query
-     DoQ：quic://a.passcloud.xyz:784
-     DoT：tls://a.passcloud.xyz:5432
-
-1.7 台湾Quad 101
+1.4 台湾Quad 101
 
      IPv4：101.101.101.101	
      IPv4：101.102.103.104
@@ -217,7 +191,7 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
 ---
 
 ### **使用说明**
-1. **国内DNS**：适合访问国内网站，速度快，推荐阿里DNS、腾讯DNS、114DNS。
+1. **国内DNS**：适合访问国内网站，速度快，推荐阿里DNS、腾讯DNS、360DNS。
 2. **国外DNS**：适合访问国际网站，隐私保护强，推荐Cloudflare DNS、Google DNS。
 3. **失效DNS**：不建议使用。
 4. **Windows**：在“网络设置”中配置DoH或DoT。
