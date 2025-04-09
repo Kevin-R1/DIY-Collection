@@ -6,7 +6,7 @@ http:
   session_ttl: 720h
 users:
   - name: root
-    password: $2a$10$ug4jIFjXXmh/yv4AFWEy5OdmfKxcAo.vkSB7HX9PWSLVQpHKh/7NW
+    password: $2a$10$9FP9l4IycVv.fFpoRt.pseHut.5e2IxHWAUjIjVd4q/i6wY1f2vOy
 auth_attempts: 5
 block_auth_min: 15
 http_proxy: ""
@@ -17,7 +17,7 @@ dns:
     - 0.0.0.0
   port: 8554
   anonymize_client_ip: false
-  ratelimit: 20
+  ratelimit: 0
   ratelimit_subnet_len_ipv4: 24
   ratelimit_subnet_len_ipv6: 56
   ratelimit_whitelist: []
@@ -26,7 +26,6 @@ dns:
     - https://cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
     - https://dns.quad9.net/dns-query
-    - https://dns.adguard.com/dns-query
     - https://doh.opendns.com/dns-query
   upstream_dns_file: ""
   bootstrap_dns:
@@ -46,7 +45,7 @@ dns:
   trusted_proxies:
     - 127.0.0.0/8
     - ::1/128
-  cache_size: 4194304
+  cache_size: 41943040
   cache_ttl_min: 0
   cache_ttl_max: 0
   cache_optimistic: false
@@ -97,37 +96,29 @@ querylog:
 statistics:
   dir_path: ""
   ignored: []
-  interval: 168h
+  interval: 24h
   enabled: true
 filters:
   - enabled: true
-    url: https://filters.adtidy.org/extension/chromium/filters/17.txt
-    name: YouTube广告拦截
-    id: 1737211841
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt
+    name: AdGuard DNS filter
+    id: 1
   - enabled: true
-    url: https://easylist.to/easylist/easyprivacy.txt
-    name: 专注于隐私保护，屏蔽跟踪器。
-    id: 1737211842
+    url: https://easylist-downloads.adblockplus.org/easylist.txt
+    name: EasyList-去除国际网页中大多数广告，包括不需要的框架、图像和对象
+    id: 2
   - enabled: true
-    url: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt
-    name: 屏蔽YouTube广告和其他烦人内容
-    id: 1737211843
-  - enabled: true
-    url: https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=0&mimetype=plaintext
+    url: https://www.i-dont-care-about-cookies.eu/abp/
     name: 屏蔽网站的 cookies 相关的警告
-    id: 1737211844
+    id: 1743250468
   - enabled: true
     url: https://winhelp2002.mvps.org/hosts.txt
-    name: 屏蔽广告和跟踪服务器
-    id: 1737211845
+    name: 屏蔽美欧地区英文网站相关的广告
+    id: 1743250469
   - enabled: true
-    url: https://filters.adtidy.org/extension/chromium/filters/2.txt
-    name: AdGuard官方的基础过滤规则
-    id: 1737211846
-  - enabled: true
-    url: https://easylist.to/easylist/fanboy-annoyance.txt
-    name: 屏蔽弹窗、社交媒体按钮等。
-    id: 1737211847
+    url: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+    name: StevenBlack – 屏蔽国外网站广告-国外维护
+    id: 1743250893
 whitelist_filters: []
 user_rules: []
 dhcp:
@@ -167,7 +158,9 @@ filtering:
   blocking_mode: default
   parental_block_host: family-block.dns.adguard.com
   safebrowsing_block_host: standard-block.dns.adguard.com
-  rewrites: []
+  rewrites:
+    - domain: rustdesk.example.com
+      answer: 192.168.5.157
   safe_fs_patterns:
     - /opt/adguardhome/work/userfilters/*
   safebrowsing_cache_size: 1048576
