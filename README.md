@@ -187,16 +187,14 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
 2.10 日本 Blahdns
      DoH：https://doh-jp.blahdns.com/dns-query
 
-
 ---
 
 ### **使用说明**
 1. **国内DNS**：适合访问国内网站，速度快，推荐阿里DNS、腾讯DNS、360DNS。
 2. **国外DNS**：适合访问国际网站，隐私保护强，推荐Cloudflare DNS、Google DNS。
-3. **失效DNS**：不建议使用。
-4. **Windows**：在“网络设置”中配置DoH或DoT。
-5. **路由器**：在路由器管理界面中配置DoT。
-6. **手机**：在“私人DNS”设置中配置DoT。
+3. **Windows**：在“网络设置”中配置DoH或DoT。
+4. **路由器**：在路由器管理界面中配置DoT。
+5. **手机**：在“私人DNS”设置中配置DoT。
 
 ---
 
@@ -204,128 +202,202 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
 #### **基础规则**
 - **CJX's Annoyance List**：针对国内的广告和弹窗。
   ```
-  https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
-  ```
+ HalfLife，规则合并自 EasylistChina、EasylistLite、CJX’sAnnoyance 合并规则（几乎每天更新)
 
-- **Anti-AD**：国内专用的广告拦截规则，覆盖广泛。
-  ```
-  https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-easylist.txt
-  ```
+     https://gitee.com/halflife/list/raw/master/ad.txt
 
----
+CJX’s Annoyance List (去自推列表)
 
-#### **增强规则**
-- **AdGuard Chinese Filter**：AdGuard官方的中文过滤规则。
-  ```
-  https://filters.adtidy.org/extension/chromium/filters/224.txt
-  ```
-- **EasyList China**：针对中国地区的广告拦截规则。
-  ```
-  https://easylist-downloads.adblockplus.org/easylistchina.txt
-  ```
-- **百万ADH广告拦截过滤规则
-  ```
-  https://raw.githubusercontent.com/BlueSkyXN/AdGuardHomeRules/master/all.txt
+     https://gitee.com/cjx82630/cjxlist/raw/master/cjx-annoyance.txt
 
-- **DNS 拦截
-  ```
-  https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdns.txt
-  https://mirror.ghproxy.com/https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdns.txt
----
+CJX’s uBlock list (uBlock 规则)
 
----
+     https://gitee.com/cjx82630/cjxlist/raw/master/cjx-ublock.txt
+xinggsf，乘风广告过滤规则（含贴吧, 屏蔽电信挟持弹窗）,乘风广告过滤规则+视频过滤规则
 
-### **国外广告拦截规则**
-#### **基础规则**
-- **EasyList**：最常用的广告拦截规则，覆盖大多数广告。
-  ```
-  https://easylist.to/easylist/easylist.txt
-  ```
+     https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/master/ABP-FX.txt
+     https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt
+     https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt
+优酷html5播放器规则
 
-- **EasyPrivacy**：专注于隐私保护，屏蔽跟踪器。
-  ```
-  https://easylist.to/easylist/easyprivacy.txt
-  ```
----
+http://git.oschina.net/yiclear/rules/raw/master/yk_h5.txt
 
----
-#### **增强规则**
-- **Fanboy's Annoyance List**：屏蔽弹窗、社交媒体按钮等。
-  ```
-  https://easylist.to/easylist/fanboy-annoyance.txt
-  ```
+百度美化规则
 
-- **AdGuard Base Filter**：AdGuard官方的基础过滤规则。
-  ```
-  https://filters.adtidy.org/extension/chromium/filters/2.txt
-  ```
----
+http://tools.yiclear.com/baidu-lite.txt
 
----
+斗鱼美化规则
 
-#### **隐私保护规则**
-- **Peter Lowe's Ad and Tracking Server List**：屏蔽广告和跟踪服务器。
-  ```
-  https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=0&mimetype=plaintext
-  ```
+https://code.csdn.net/cccccccc0/adblock/blob/master/douyu.txt
+EasyList + EasyList China：EasyList 和 EasyList China 是广告过滤的主规则
 
----
+EasyPrivacy：EasyPrivacy 是隐私保护，不被跟踪
 
----
-#### **恶意网站拦截**
-- **Malware Domain List**：屏蔽恶意软件和钓鱼网站。
-  ```
-  https://mirror1.malwaredomains.com/files/justdomains
-  ```
+CJX’s Annoyance List：过滤烦人的自我推广，并补充EasyPrivacy隐私规则
 
----
+I don’t care about cookies：我不关心 Cookie 的问题，屏蔽网站的 cookies 相关的警告
 
-### **1. 常用视频广告拦截规则**
-#### **YouTube广告拦截**
-- **AdGuard YouTube Filter**：
-  ```
-  https://filters.adtidy.org/extension/chromium/filters/17.txt
-  ```
-  - 特点：AdGuard官方的YouTube广告拦截规则。
+广告过滤器规则推荐（打开Adguard -> 设置 -> 内容拦截 -> User rules）
 
-- **uBlock Filters – Annoyances**：
-  ```
-  https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt
-  ```
-  - 特点：屏蔽YouTube广告和其他烦人内容。
+HalfLife，规则合并自EasylistChina、EasylistLite、CJX’sAnnoyance 合并规则（几乎每天更新)
 
-- **YouTube AdBlock List**：
-  ```
-  https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_17_YoutubeAds/filter.txt
-  ```
-  - 特点：专注于屏蔽YouTube广告。
+https://gitee.com/halflife/list/raw/master/ad.txt
+广告净化器扩展官方规则ChinaListV2.0（可过滤网页视频及应用播放广告）
 
-- **Fanboy's Annoyance List**：
-  ```
-  https://easylist.to/easylist/fanboy-annoyance.txt
-  ```
-  - 特点：屏蔽国际视频网站（如YouTube、Twitch）的广告。
+http://tools.yiclear.com/ChinaList2.0.txt
 
-- **AdGuard Base Filter**：
-  ```
-  https://filters.adtidy.org/extension/chromium/filters/2.txt
-  ```
-  - 特点：AdGuard官方的基础过滤规则，覆盖视频广告。
+里面疑似有劫持购物返利规则
 
----
+xinggsf，乘风广告过滤规则（含贴吧, 屏蔽电信挟持弹窗）
 
----
-#### **国内视频广告拦截**
-- **CJX's Annoyance List**：
-  ```
-  https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
-  ```
-  - 特点：针对国内视频网站（如优酷、爱奇艺）的广告拦截。
+https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/master/ABP-FX.txt
+EasyList
 
-- **Anti-AD**：
-  ```
-  https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-easylist.txt
-  ```
-  - 特点：国内专用的广告拦截规则，覆盖视频广告。
+去除国际网页中大多数广告，包括不需要的框架、图像和对象
 
----
+链接 https://easylist-downloads.adblockplus.org/easylist.txt
+
+EasyList China
+
+EasyList针对国内的补充规则
+
+链接 https://easylist-downloads.adblockplus.org/easylistchina.txt
+
+EasyPrivacy
+
+从网络上上完全删除所有形式的跟踪，包括Web错误、跟踪脚本和信息收集，从而保护您的个人数据
+
+链接 https://easylist-downloads.adblockplus.org/easyprivacy.txt
+
+EasyList Cookie List
+
+阻止Cookie标语，GDPR覆盖窗口和其他与隐私相关的通知
+
+链接 https://easylist-downloads.adblockplus.org/easylist-cookie.txt
+
+ 乘风去广告
+
+广告规则：https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt
+
+视频规则：https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt
+
+Anti-AD
+
+
+目前中文区命中率最高的广告过滤列表，实现了精确的广告屏蔽和隐私保护
+
+屏蔽广告域名、电视盒子广告、APP内置广告，同时屏蔽了一些日志收集、大数据统计等涉及个人隐私信息的站点，能够保护个人隐私不被偷偷上传
+
+链接 https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-easylist.txt
+
+CDN加速：https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-easylist.txt
+
+
+Adbyby
+
+链接 https://raw.githubusercontent.com/adbyby/xwhyc-rules/master/lazy.txt
+
+CDN加速链接：https://cdn.jsdelivr.net/gh/adbyby/xwhyc-rules@master/lazy.txt
+
+链接 https://raw.githubusercontent.com/adbyby/xwhyc-rules/master/video.txt
+
+CDN加速链接：https://cdn.jsdelivr.net/gh/adbyby/xwhyc-rules@master/video.txt
+
+CJX’s Annoyance List
+
+
+过滤烦人的自我推广，并补充 EasyPrivacy 隐私规则
+
+一、CJX’s Annoyance List (去自推列表)
+
+链接: https://gitee.com/cjx82630/cjxlist/raw/master/cjx-annoyance.txt
+
+CDN加速链接：https://cdn.jsdelivr.net/gh/cjx82630/cjxlist@master/cjx-annoyance.txt
+
+二、CJX’s uBlock list (uBlock 规则)
+
+https://gitee.com/cjx82630/cjxlist/raw/master/cjx-ublock.txt
+CDN加速链接：https://cdn.jsdelivr.net/gh/cjx82630/cjxlist@master/cjx-ublock.txt
+
+
+I don’t care about cookies
+
+屏蔽网站的 cookies 相关的警告
+
+链接 https://www.i-dont-care-about-cookies.eu/abp/
+
+知乎过滤器
+
+去除开屏、时间轴、首页推荐、回答列表、回答底部及评论区广告，个人中心VIP横幅去除知乎会员推荐的内容（严格版）
+
+
+标准版 https://raw.githubusercontent.com/zsakvo/AdGuard-Custom-Rule/master/rule/zhihu.txt
+
+CDN加速链接：https://cdn.jsdelivr.net/gh/zsakvo/AdGuard-Custom-Rule@master/rule/zhihu.txt
+
+严格版 https://raw.githubusercontent.com/zsakvo/AdGuard-Custom-Rule/master/rule/zhihu-strict.txt
+
+CDN加速链接：https://cdn.jsdelivr.net/gh/zsakvo/AdGuard-Custom-Rule@master/rule/zhihu-strict.txt
+
+
+Hosts过滤器
+
+大圣净化 – 针对国内视频网站
+
+链接 https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts
+
+1024_hosts – 1024网站和澳门皇家赌场
+
+链接 https://raw.githubusercontent.com/Goooler/1024_hosts/master/hosts
+
+Google hosts – 提高网站访问速度
+
+
+链接 https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
+
+Hblock – 综合多种源集合体屏蔽广告跟踪和恶意软件
+
+链接 https://hblock.molinero.xyz/hosts
+
+Mvps – 屏蔽美欧地区英文网站相关的广告
+
+链接 http://winhelp2002.mvps.org/hosts.txt
+
+neoHosts – 国内屏蔽挖矿统计JS&360&百度&法轮功等
+
+
+链接 https://hosts.nfz.moe/full/hosts
+
+StevenBlack – 屏蔽国外网站广告-国外维护
+
+链接 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+
+yhosts – 屏蔽国内网站广告-国内维护
+
+链接 https://raw.githubusercontent.com/vokins/yhosts/master/hosts
+
+YousList – 屏蔽韩国网站广告
+
+
+链接 https://raw.githubusercontent.com/yous/YousList/master/hosts.txt
+
+其他
+
+https://easylist-downloads.adblockplus.org/fanboy-social.txt
+https://easylist-downloads.adblockplus.org/malwaredomains_full.txt
+https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt
+https://gitee.com/anye1998/Adguard-List-of-personal-rules/raw/master/List-of-personal-rules.txt
+http://easylist.to/easylist/easylist.txt
+
+
+http://www.i-dont-care-about-cookies.eu/abp
+
+http://easylist-downloads.adblockplus.org/easylistchina.txt
+
+http://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
+
+http://sub.adtchrome.com/adt-chinalist-easylist.txt
+
+http://gitee.com/halflife/list/raw/master/ad.txt
+
+http://www.fanboy.co.nz/r/fanboy-ultimate.txt
