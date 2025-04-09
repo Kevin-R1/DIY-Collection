@@ -244,7 +244,7 @@ xinggsf，乘风广告过滤规则（含贴吧, 屏蔽电信挟持弹窗）
 
 EasyList-去除国际网页中大多数广告，包括不需要的框架、图像和对象
 
-链接 https://easylist-downloads.adblockplus.org/easylist.txt
+     链接 https://easylist-downloads.adblockplus.org/easylist.txt
 
 EasyList China-EasyList针对国内的补充规则
 
