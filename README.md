@@ -35,15 +35,16 @@
      is-opkg install luci-i18n-quickstart-zh-cn
      
 ---
-### 一款全功能的Linux管理脚本！
-# Linux工具箱
+# 一款全功能的Linux管理脚本！
+### Linux工具箱
 ```
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/en/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
 ```
-# 搭建节点vps合集工具箱
+### 搭建节点vps合集工具箱
 ```
 curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
 ```
+
 以下是博主提供的DNS服务器列表，按**国内**和**国外**分类。
 ---
 
