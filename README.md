@@ -15,7 +15,9 @@
 ```
 这个命令适合N1下的openwrt直接创建
 ```
-    wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh  
+    wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
+二次运行
+. adg.sh 
 ```
 操作顺序
 ```
@@ -37,12 +39,18 @@
 ```
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/en/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
 ```
+二次运行
+```
+./kejilion.sh
+```
 ### 3.2 搭建节点vps合集工具箱
 ```
 curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
-
 ```
-
+二次运行
+```
+./ssh_tool.sh
+```
 # 4 DNS收集服务器列表，按**国内**和**国外**分类。
 ### 1 **国内DNS服务器**
 1.1 腾讯 DNS
@@ -189,13 +197,11 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
 2.8 日本 IIJ DNS
 
      DoH：https://public.dns.iij.jp/dns-query
-
----
-
+```
 ### **使用说明**
 1. **国内DNS**：适合访问国内网站，速度快，推荐阿里DNS、腾讯DNS、360DNS。
 2. **国外DNS**：适合访问国际网站，隐私保护强，推荐Cloudflare DNS、Google DNS。
 3. **Windows**：在“网络设置”中配置DoH或DoT。
 4. **路由器**：在路由器管理界面中配置DoT。
 5. **手机**：在“私人DNS”设置中配置DoT。
----
+```
