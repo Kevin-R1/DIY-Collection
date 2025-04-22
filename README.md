@@ -35,7 +35,9 @@
      is-opkg install luci-i18n-quickstart-zh-cn
      
 ---
-
+```
+curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
+```
 以下是博主提供的DNS服务器列表，按**国内**和**国外**分类。
 ---
 
