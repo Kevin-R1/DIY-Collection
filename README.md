@@ -99,17 +99,11 @@ curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o 
      
 2.2 IBM Quad9
 
-Quad9 DNS 服务由总部位于瑞士的 Quad9 基金会运营（IBM是主要赞助商之一），Quad9 系统都不会记录包含您 IP 地址的数据，如果您的系统支持，Connections 可以使用加密，整个 Quad9 平台的设计符合 GDPR。
-
-#推荐：Malware Blocking、DNSSEC Validation（这是最典型的配置）
-
      IPv4：9.9.9.9
      IPv4：149.112.112.112
      DoH：https://dns.quad9.net/dns-query
      DoT：dns.quad9.net
  
-#使用 ECS 保护：恶意软件阻止、DNSSEC 验证、启用 ECS
-
      IPv4：9.9.9.11
      IPv4：149.112.112.11
      DoH：https://dns11.quad9.net/dns-query
@@ -189,6 +183,7 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
      DoH：https://dns-family.adguard.com/dns-query
      DoT：dns-family.adguard.com
      DoQ：quic://dns-family.adguard.com
+     
 2.7 DNS.SB
 
      IPv4：185.222.222.222
@@ -200,11 +195,11 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
 2.8 日本 IIJ DNS
 
      DoH：https://public.dns.iij.jp/dns-query
-```
+
 ### **使用说明**
 1. **国内DNS**：适合访问国内网站，速度快，推荐阿里DNS、腾讯DNS、360DNS。
 2. **国外DNS**：适合访问国际网站，隐私保护强，推荐Cloudflare DNS、Google DNS。
 3. **Windows**：在“网络设置”中配置DoH或DoT。
 4. **路由器**：在路由器管理界面中配置DoT。
 5. **手机**：在“私人DNS”设置中配置DoT。
-```
+
