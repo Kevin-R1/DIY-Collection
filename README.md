@@ -11,13 +11,14 @@
 
 ### 1.2其他固件如X86和RK瑞芯微处理器下的op和带Docker的设备，！打个比方如NAS设备FnOS如要使用此脚本，还需要手动创建1-2个文件夹路径！！！然后继续运行脚【[全程数字操作！】
 ```
-     mkdir -p /mnt/mmcblk2p4/adg
+mkdir -p /mnt/mmcblk2p4/adg
 ```
 这个命令适合N1下的openwrt直接创建
 ```
-    wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
+wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
 ```
 二次运行
+```
 . adg.sh 
 ```
 操作顺序
