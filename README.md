@@ -1,7 +1,5 @@
-# 双AdGuardHome及OpenWrt商店及Linux部分工具合集以及DNS收集附赠国内外广告部分拦截黑名单和白名单 by [Namia-X]
-
-
-[`国内外广告部分拦截黑名单和白名单`]( https://github.com/wukongdaily)
+# 双AdGuardHome及OpenWrt商店及Linux部分工具合集以及DNS收集 by [Namia-X]
+### 附赠[`国内外广告部分拦截黑名单和白名单`](https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/refs/heads/main/AdGuard%E6%A8%A1%E6%9D%BF/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E9%BB%91%E5%90%8D%E5%8D%95.txt)
 ### 1  双AdGuardHome一键安装脚本即使用方法举一反三
 ### 1.1**基于你已经安装了docker版agd可以使用模板进行复制和上传，或者Docker版自己配置**
 - 1 本身附带有AdGuardHome并且在服务里面找到了AdGuardHome你可以直接复制AdGuardHome-cn.yaml此文件里面的，在AdGuardHome模板手动复制粘贴就行，自己找的ipk及run安装包一样方法使用模板。
