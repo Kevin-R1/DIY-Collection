@@ -25,19 +25,19 @@
 
 ---
 
-#  2 OpenWrt[`悟空的日常`]( https://github.com/wukongdaily) 所撰写的iStore商店和设置向导 by [wukongdaily]
+#  2 OpenWrt[`悟空的日常`]( https://github.com/wukongdaily) 所撰写的iStore商店和设置向导
 ### 2.1**安装iStore商店(ARM64 & x86-64通用)**
 ---
      wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
      
 ---
-### 2.2**安装网络向导和首页(ARM64 & x86-64通用)**
+### 2.2安装网络向导和首页(ARM64 & x86-64通用)
 
 ---
      is-opkg install luci-i18n-quickstart-zh-cn
      
 ---
-# 3 一款全功能的Linux管理脚本！by [`kejilion`]( https://github.com/kejilion/sh)以及 [`eooce`]( https://github.com/eooce/ssh_tool) 
+# 3 二款全功能的Linux管理脚本！[`kejilion`]( https://github.com/kejilion/sh) [`eooce`]( https://github.com/eooce/ssh_tool) 
 ### 3.1 家用Linux工具箱
 ```
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/en/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
