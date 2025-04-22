@@ -15,10 +15,11 @@
 ```
     wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh  
 ```
-操作顺序如果其他设备端口3000被占用记得更改.
+操作顺序
 ```
-3111100311
+3，1，1，1，1，0，0，3，1，1
 ```
+如果其他设备端口3000被占用记得更改。
 - ![img.png](img/2.png)
 #  2 OpenWrt[`悟空的日常`]( https://github.com/wukongdaily) 所撰写的iStore商店和设置向导
 ### 2.1**安装iStore商店(ARM64 & x86-64通用)**
