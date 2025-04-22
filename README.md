@@ -1,13 +1,15 @@
-#  双AdGuardHome一键安装脚本及docker AdGuardHome一键安装版  by [Namia-X]
+# OpenWrt及常用DNS收集以及Linux部分工具合计 by [Namia-X]
 
-### **基于你已经安装了docker版agd可以使用模板进行复制和上传，或者docker版自己配置**
+### 1  双AdGuardHome一键安装脚本及docker AdGuardHome一键安装脚本  
+
+### 1.1**基于你已经安装了docker版agd可以使用模板进行复制和上传，或者docker版自己配置**
 
 - 1 文件夹找到 /mnt/mmcblk2p4/adg/confdir1，上传AdGuardHome.yaml到confdir1此为docker版本配置yaml文件上传路径，博主本人只是把它当作了第二分dns用作拦截国内外广告你可以自己找喜欢的dns去改变，如有失效的请提交出来我，我去补充。
 - 2 你已经下载了agd并且在服务里面找到了agd你可以直接复制AdGuardHome-cn.yaml此文件里面的，在adg模板手动复制粘贴就行。
 - 3 搭配mosdns或者smtdns运行，插件包的agd不作为dns服务器选择无，如果你用我模版记得看对应端口转发和访问端口转发如果不喜欢自行改。
 - 4不需要删掉固件自带的agd，你不嫌麻烦可以全docker板agd。
 
-### **其他固件如X86和RK瑞芯微处理器下的op如要使用此脚本，还需要手动创建两个文件夹路径，然后继续运行脚本**
+### 1.2**其他固件如X86和RK瑞芯微处理器下的op如要使用此脚本，还需要手动创建两个文件夹路径，然后继续运行脚本**
 ---
      mkdir -p /mnt/mmcblk2p4/adg
 ---
@@ -22,34 +24,34 @@
 3111100311
 
 ---
-### **[`悟空的日常`]( https://github.com/wukongdaily) 所撰写的iStore商店和设置向导 by [wukongdaily]**
 
-### **安装iStore商店(ARM64 & x86-64通用)**
+#  2 OpenWrt
+### 2.1**[`悟空的日常`]( https://github.com/wukongdaily) 所撰写的iStore商店和设置向导 by [wukongdaily]**
+
+### 2.2**安装iStore商店(ARM64 & x86-64通用)**
 ---
      wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
      
 ---
-### **安装网络向导和首页(ARM64 & x86-64通用)**
+### 2.3**安装网络向导和首页(ARM64 & x86-64通用)**
 
 ---
      is-opkg install luci-i18n-quickstart-zh-cn
      
 ---
-# 一款全功能的Linux管理脚本！
-### 家用Linux工具箱
+# 3 一款全功能的Linux管理脚本！
+### 3.1 家用Linux工具箱
 ```
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/en/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
 ```
-### 搭建节点vps合集工具箱
+### 3.2 搭建节点vps合集工具箱
 ```
 curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
+
 ```
 
-以下是博主提供的DNS服务器列表，按**国内**和**国外**分类。
----
-
-1. ### **国内DNS服务器**
-
+# 4 DNS收集服务器列表，按**国内**和**国外**分类。
+### 1 **国内DNS服务器**
 1.1 腾讯 DNS
 腾讯 DNS 基于 BGP Anycast 技术，不论用户身在何地，都可就近访问服务。支持谷歌 ECS 协议，配合 DNSPod 权威解析，可以给用户提供出最准确的解析结果，承诺不劫持解析结果。
 
@@ -82,7 +84,7 @@ curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o 
      IPv4：101.102.103.104
      DoH：https://dns.twnic.tw/dns-query
 
-2. ### **国外DNS服务器**
+### 2 **国外DNS服务器**
    
 2.1 Google DNS
 
@@ -195,7 +197,6 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
 
      DoH：https://public.dns.iij.jp/dns-query
 
-
 ---
 
 ### **使用说明**
@@ -204,9 +205,7 @@ AdGuard DNS 是屏蔽互联网广告的安全方法。它不需要您安装任�
 3. **Windows**：在“网络设置”中配置DoH或DoT。
 4. **路由器**：在路由器管理界面中配置DoT。
 5. **手机**：在“私人DNS”设置中配置DoT。
-
 ---
-
 ### **国内广告拦截白名单**必填白名单
 白名单1
 
