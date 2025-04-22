@@ -18,6 +18,9 @@ mkdir -p /mnt/mmcblk2p4/adg
 ```
 wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
 ```
+加速脚本
+wget https://github.namia.eu.org/https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/refs/heads/main/adg.sh && sh adg.sh
+
 二次运行
 ```
 . adg.sh 
