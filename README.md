@@ -1,9 +1,6 @@
 # OpenWrt及常用DNS收集以及Linux部分工具合计附征国内广告拦截白名单 by [Namia-X]
-
-### 1  双AdGuardHome一键安装脚本及docker AdGuardHome一键安装脚本  
-
+### 1  双AdGuardHome一键安装脚本及docker AdGuardHome一键安装脚本基于Docker安装
 ### 1.1**基于你已经安装了docker版agd可以使用模板进行复制和上传，或者docker版自己配置**
-
 - 1 文件夹找到 /mnt/mmcblk2p4/adg/confdir1，上传AdGuardHome.yaml到confdir1此为docker版本配置yaml文件上传路径，博主本人只是把它当作了第二分dns用作拦截国内外广告你可以自己找喜欢的dns去改变，如有失效的请提交出来我，我去补充。
 - 2 你已经下载了agd并且在服务里面找到了agd你可以直接复制AdGuardHome-cn.yaml此文件里面的，在adg模板手动复制粘贴就行。
 - 3 搭配mosdns或者smtdns运行，插件包的agd不作为dns服务器选择无，如果你用我模版记得看对应端口转发和访问端口转发如果不喜欢自行改。
