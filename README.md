@@ -14,7 +14,7 @@
 ```
     wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh  
 ```
-操作顺序如果其他设备端口3000被占用记得更改- ![img.png](img/1.png)
+操作顺序如果其他设备端口3000被占用记得更改- ![img.png](img/2.png)
 ```
 3111100311
 ```
