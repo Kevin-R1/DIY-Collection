@@ -5,7 +5,7 @@
 - 2 基于你使用Docker 命令1.2创建的AdGuardHome，文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就1.2创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径，相反你也可以ip3000自己配，博主本人模板只是把它当作了第二dns用作拦截国外广告。
 - 3 搭配mosdns或者smtdns运行，插件包的agd不作为dns服务器选择无，如果你用我模版记得看对应端口转发和访问端口转发如果不喜欢自行改，分别是8553.8554。
 - 4不需要删掉固件自带的agd，你也可以全docker板agd。
-
+- ![img.png](img/1.png)
 ### 1.2**其他固件如X86和RK瑞芯微处理器下的op和！带Docker的设备及NAS设备如FnOS等如要使用此脚本，还需要手动创建两个文件夹路径，然后继续运行脚本**
 ```
      mkdir -p /mnt/mmcblk2p4/adg
