@@ -44,7 +44,7 @@ wget https://github.namia.eu.org/https://raw.githubusercontent.com/Kevin-R1/Two-
 # 3 二款全功能的Linux管理脚本！[`kejilion`]( https://github.com/kejilion/sh) [`eooce`]( https://github.com/eooce/ssh_tool) 
 ### 3.1 家用Linux工具箱
 ```
-curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/en/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
+curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/cn/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
 ```
 二次运行
 ```
