@@ -36,7 +36,7 @@
      
 ---
 # 一款全功能的Linux管理脚本！
-### Linux工具箱
+### 家用Linux工具箱
 ```
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/en/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
 ```
