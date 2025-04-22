@@ -10,33 +10,26 @@
 - 4不需要删掉固件自带的agd，你不嫌麻烦可以全docker板agd。
 
 ### 1.2**其他固件如X86和RK瑞芯微处理器下的op如要使用此脚本，还需要手动创建两个文件夹路径，然后继续运行脚本**
----
+```
      mkdir -p /mnt/mmcblk2p4/adg
----
-
+```
 这个命令适合N1下的openwrt直接创建
----
+```
     wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh  
----
+```
 操作顺序
----
-
+```
 3111100311
-
----
-
+```
 #  2 OpenWrt[`悟空的日常`]( https://github.com/wukongdaily) 所撰写的iStore商店和设置向导
 ### 2.1**安装iStore商店(ARM64 & x86-64通用)**
----
+```
      wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
-     
----
+```
 ### 2.2安装网络向导和首页(ARM64 & x86-64通用)
-
----
+```
      is-opkg install luci-i18n-quickstart-zh-cn
-     
----
+```
 # 3 二款全功能的Linux管理脚本！[`kejilion`]( https://github.com/kejilion/sh) [`eooce`]( https://github.com/eooce/ssh_tool) 
 ### 3.1 家用Linux工具箱
 ```
