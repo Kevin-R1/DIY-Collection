@@ -1,4 +1,4 @@
-# OpenWrt及常用DNS收集以及Linux部分工具合计 by [Namia-X]
+# OpenWrt及常用DNS收集以及Linux部分工具合计附征国内广告拦截白名单 by [Namia-X]
 
 ### 1  双AdGuardHome一键安装脚本及docker AdGuardHome一键安装脚本  
 
@@ -39,7 +39,7 @@
      is-opkg install luci-i18n-quickstart-zh-cn
      
 ---
-# 3 一款全功能的Linux管理脚本！
+# 3 一款全功能的Linux管理脚本！by [`kejilion`]( https://github.com/kejilion/sh)以及 [`kejilion`]( https://github.com/eooce/ssh_tool) 
 ### 3.1 家用Linux工具箱
 ```
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/en/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
