@@ -58,16 +58,17 @@ curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o 
 ### 1 **国内DNS服务器**
 1.1 腾讯 DNS
 腾讯 DNS 基于 BGP Anycast 技术，不论用户身在何地，都可就近访问服务。支持谷歌 ECS 协议，配合 DNSPod 权威解析，可以给用户提供出最准确的解析结果，承诺不劫持解析结果。
-
-     IPv4：119.29.29.29
-     DoH：https://doh.pub/dns-query
-     DoH：https://1.12.12.12/dns-query
-     DoH：https://120.53.53.53/dns-query
-     DoH：https://sm2.doh.pub/dns-query (国密)
-     DoT：dot.pub
-     DoT：1.12.12.12
-     DoT：120.53.53.53
-     
+```
+IPV4: 119.29.29.29
+IPV6: 2402:4e00::
+DoH: https://doh.pub/dns-query
+DoH(IP): https://1.12.12.12/dns-query
+DoH(IP):  https://120.53.53.53/dns-query
+DoH(国密): https://sm2.doh.pub/dns-query
+DoT: dot.pub
+DoT(IP): 1.12.12.12
+DoT(IP): 120.53.53.53
+```
 1.2 阿里 DNS
 阿里 DNS 线路支持包括电信、移动、联通、鹏博士、广电网、教育网及海外 150 个国家或地域，支持用户 ECS 扩展技术，智能解析；支持 DoT/DoH 协议，保护用户隐私，安全防劫持。
 
@@ -100,14 +101,11 @@ curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o 
 2.2 IBM Quad9
 
      IPv4：9.9.9.9
+     IPv4：9.9.9.11
      IPv4：149.112.112.112
      DoH：https://dns.quad9.net/dns-query
-     DoT：dns.quad9.net
- 
-     IPv4：9.9.9.11
-     IPv4：149.112.112.11
      DoH：https://dns11.quad9.net/dns-query
-     DoT：dns11.quad9.net
+     DoT：dns.quad9.net
  
 #不安全：没有恶意软件阻止，没有 DNSSEC 验证（仅限专家！）
 
@@ -117,8 +115,6 @@ curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o 
      DoT：dns10.quad9.net
      
 2.3 👍CleanBrowsing DNS
-
-CleanBrowsing 帮助他们在家中创建自己的家庭友好网络，为孩子创造安全在线体验。永远免费，没有跟踪。
 
 #安全保护：阻止对网络钓鱼、垃圾邮件、恶意软件和恶意域的访问。
 
