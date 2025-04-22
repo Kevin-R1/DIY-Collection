@@ -2,10 +2,11 @@
 ### 1  双AdGuardHome一键安装脚本即使用方法举一反三
 ### 1.1**基于你已经安装了docker版agd可以使用模板进行复制和上传，或者Docker版自己配置**
 - 1 本身附带有AdGuardHome并且在服务里面找到了AdGuardHome你可以直接复制AdGuardHome-cn.yaml此文件里面的，在AdGuardHome模板手动复制粘贴就行，自己找的ipk及run安装包一样方法使用模板。
+- ![img.png](img/1.png)
 - 2 基于你使用Docker 命令1.2创建的AdGuardHome，文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就1.2创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径，相反你也可以ip3000自己配，博主本人模板只是把它当作了第二dns用作拦截国外广告。
 - 3 搭配mosdns或者smtdns运行，插件包的agd不作为dns服务器选择无，如果你用我模版记得看对应端口转发和访问端口转发如果不喜欢自行改，分别是8553.8554。
 - 4不需要删掉固件自带的agd，你也可以全docker板agd。
-- ![img.png](img/1.png)
+
 ### 1.2其他固件如X86和RK瑞芯微处理器下的op和带Docker的设备，！打个比方如NAS设备FnOS如要使用此脚本，还需要手动创建1个文件夹路径！！！然后继续运行脚本
 ```
      mkdir -p /mnt/mmcblk2p4/adg
@@ -14,10 +15,11 @@
 ```
     wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh  
 ```
-操作顺序如果其他设备端口3000被占用记得更改- ![img.png](img/2.png)
+操作顺序如果其他设备端口3000被占用记得更改.
 ```
 3111100311
 ```
+- ![img.png](img/2.png)
 #  2 OpenWrt[`悟空的日常`]( https://github.com/wukongdaily) 所撰写的iStore商店和设置向导
 ### 2.1**安装iStore商店(ARM64 & x86-64通用)**
 ```
