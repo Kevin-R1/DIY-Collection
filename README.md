@@ -22,9 +22,8 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 ```
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh)"
 ```
-二次运行
-```
-. adg.sh 
+# 直接运行脚本进入交互菜单
+sudo ./adg.sh
 ```
 操作顺序
 ```
