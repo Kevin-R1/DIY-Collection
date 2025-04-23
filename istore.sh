@@ -1,121 +1,135 @@
 #!/bin/sh
+#
+# iStore OpenWrt Installation Script
+# Author: Your Name
+# Repository: https://github.com/yourusername/istore-installer
+#
+# Description: Automated installation of iStore on OpenWrt systems
+# Version: 1.0.0
+# License: MIT
 
-# 参数处理
-if [ "$1" = "--install-luci-app-store" ]; then
-    INSTALL_LUCI_APP_STORE=1
-fi
+set -euo pipefail
 
-# 使用国内镜像源
-ISTORE_REPO="https://cdn.jsdelivr.net/gh/linkease/istore@main/repo/all/store"
-# 备用源
-ISTORE_REPO_BACKUP="https://istore.istoreos.com/repo/all/store"
+# Constants
+ISTORE_REPO="https://istore.istoreos.com/repo/all/store"
+REPO_DOMAIN_OLD="istore.linkease.com"
+REPO_DOMAIN_NEW="istore.istoreos.com"
+TEMP_OPKG="/tmp/is-opkg"
 
-# 最大重试次数
-MAX_RETRY=3
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # No Color
 
-# 带重试的curl下载
-safe_curl() {
-    local url=$1
-    local retry=0
-    local success=0
-    
-    while [ $retry -lt $MAX_RETRY ]; do
-        if curl --fail --show-error --connect-timeout 20 --retry 3 "$url" 2>/dev/null; then
-            success=1
-            break
-        fi
-        
-        echo "下载失败，正在重试 ($((retry+1))/$MAX_RETRY)..."
-        retry=$((retry+1))
-        sleep 3
-    done
-    
-    [ $success -eq 1 ] || return 1
+# Functions
+error() {
+  echo -e "${RED}[ERROR]${NC} $1" >&2
+  exit 1
 }
 
-# 安装必要依赖
-install_deps() {
-    echo "正在检查并安装必要依赖..."
-    
-    # 检查并安装curl
-    if ! command -v curl >/dev/null; then
-        echo "正在安装curl..."
-        opkg update >/dev/null 2>&1
-        opkg install curl >/dev/null 2>&1 || {
-            echo "无法安装curl，请检查网络连接"
-            return 1
-        }
+warning() {
+  echo -e "${YELLOW}[WARNING]${NC} $1" >&2
+}
+
+info() {
+  echo -e "${GREEN}[INFO]${NC} $1"
+}
+
+check_prerequisites() {
+  # Check if running on OpenWrt
+  if [ ! -f "/etc/openwrt_release" ]; then
+    error "This script must be run on an OpenWrt system!"
+  fi
+
+  # Check for root
+  if [ "$(id -u)" -ne 0 ]; then
+    error "This script must be run as root!"
+  fi
+
+  # Check for curl
+  if ! command -v curl >/dev/null 2>&1; then
+    info "Installing curl..."
+    opkg update || warning "Failed to update package lists"
+    opkg install curl || error "Failed to install curl"
+  fi
+}
+
+download_istore() {
+  info "Downloading iStore package information..."
+  IPK=$(curl --fail --show-error "$ISTORE_REPO/Packages.gz" | \
+    zcat | \
+    grep -m1 '^Filename: luci-app-store.*\.ipk$' | \
+    sed -n -e 's/^Filename: \(.\+\)$/\1/p')
+
+  [ -n "$IPK" ] || error "Failed to find iStore package in repository"
+
+  info "Downloading and extracting iStore installer..."
+  curl --fail --show-error "$ISTORE_REPO/$IPK" | \
+    tar -xzO ./data.tar.gz | \
+    tar -xzO ./bin/is-opkg > "$TEMP_OPKG" || \
+    error "Failed to download or extract iStore installer"
+
+  [ -s "$TEMP_OPKG" ] || error "Downloaded installer is empty"
+  chmod 755 "$TEMP_OPKG"
+}
+
+install_packages() {
+  info "Updating package lists..."
+  "$TEMP_OPKG" update || warning "Package list update failed"
+
+  info "Installing dependencies..."
+  "$TEMP_OPKG" opkg install --force-reinstall luci-lib-taskd luci-lib-xterm || \
+    error "Failed to install dependencies"
+
+  info "Installing luci-app-store..."
+  "$TEMP_OPKG" opkg install --force-reinstall luci-app-store || \
+    error "Failed to install luci-app-store"
+
+  if [ ! -s "/etc/init.d/tasks" ]; then
+    info "Installing taskd..."
+    "$TEMP_OPKG" opkg install --force-reinstall taskd || \
+      warning "Failed to install taskd"
+  fi
+
+  if [ ! -s "/usr/lib/lua/luci/cbi.lua" ]; then
+    info "Installing luci-compat..."
+    "$TEMP_OPKG" opkg install luci-compat >/dev/null 2>&1 || \
+      warning "Failed to install luci-compat"
+  fi
+}
+
+update_repo_urls() {
+  info "Updating repository URLs..."
+  for file in /bin/is-opkg /etc/opkg/compatfeeds.conf /www/luci-static/istore/index.js; do
+    if [ -f "$file" ]; then
+      sed -i "s/$REPO_DOMAIN_OLD/$REPO_DOMAIN_NEW/g" "$file" || \
+        warning "Failed to update $file"
+    else
+      warning "File not found: $file (skipping URL update)"
     fi
-    
-    # 检查并安装zcat
-    if ! command -v zcat >/dev/null; then
-        echo "正在安装zcat..."
-        opkg update >/dev/null 2>&1
-        opkg install zlib-bin >/dev/null 2>&1 || {
-            echo "无法安装zcat，请检查网络连接"
-            return 1
-        }
-    fi
-    
-    return 0
+  done
 }
 
-# 安装luci-app-store
-install_luci_app_store() {
-    echo "正在直接安装 luci-app-store..."
-    
-    # 安装依赖
-    install_deps || return 1
-    
-    # 获取IPK信息
-    echo "正在获取软件包信息..."
-    IPK=$(safe_curl "$ISTORE_REPO/Packages.gz" | zcat | grep -m1 '^Filename: luci-app-store.*\.ipk$' | sed -n -e 's/^Filename: \(.\+\)$/\1/p')
-    
-    [ -n "$IPK" ] || {
-        echo "尝试从备用源获取..."
-        IPK=$(safe_curl "$ISTORE_REPO_BACKUP/Packages.gz" | zcat | grep -m1 '^Filename: luci-app-store.*\.ipk$' | sed -n -e 's/^Filename: \(.\+\)$/\1/p')
-        [ -n "$IPK" ] || {
-            echo "无法获取软件包信息，请检查网络连接"
-            return 1
-        }
-    }
-    
-    # 下载并安装
-    echo "正在下载并安装 luci-app-store..."
-    safe_curl "$ISTORE_REPO/$IPK" > /tmp/luci-app-store.ipk || {
-        echo "尝试从备用源下载..."
-        safe_curl "$ISTORE_REPO_BACKUP/$IPK" > /tmp/luci-app-store.ipk || {
-            echo "下载失败，请检查网络连接"
-            return 1
-        }
-    }
-    
-    opkg install /tmp/luci-app-store.ipk || {
-        echo "安装失败"
-        return 1
-    }
-    
-    rm -f /tmp/luci-app-store.ipk
-    echo "luci-app-store 安装成功！"
-    return 0
+cleanup() {
+  if [ -f "$TEMP_OPKG" ]; then
+    rm -f "$TEMP_OPKG" || warning "Failed to remove temporary file"
+  fi
 }
 
-# 主安装函数
-do_istore() {
-    if [ "$INSTALL_LUCI_APP_STORE" = "1" ]; then
-        install_luci_app_store
-        return $?
-    fi
-    
-    echo "开始安装iStore..."
-    # 原有安装逻辑...
-    # ... (保持原来的do_istore函数内容不变)
+# Main execution
+main() {
+  info "Starting iStore installation..."
+  
+  check_prerequisites
+  download_istore
+  install_packages
+  update_repo_urls
+  cleanup
+  
+  info "iStore installation completed successfully!"
+  info "You can now access iStore through the LuCI web interface."
 }
 
-# 执行安装
-do_istore || {
-    echo "安装过程中出现错误"
-    exit 1
-}
-
-exit 0
+# Execute main function
+main
