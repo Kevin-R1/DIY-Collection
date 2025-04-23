@@ -1,135 +1,54 @@
+cat > /tmp/install_istore.sh << "EOF"
 #!/bin/sh
-#
-# iStore OpenWrt Installation Script
-# Author: Your Name
-# Repository: https://github.com/yourusername/istore-installer
-#
-# Description: Automated installation of iStore on OpenWrt systems
-# Version: 1.0.0
-# License: MIT
+# 安装iStore 参考 https://github.com/linkease/istore
+do_istore() {
+    echo "do_istore method==================>"
+    # 换源
+    ISTORE_REPO=https://istore.istoreos.com/repo/all/store
+    FCURL="curl --fail --show-error"
 
-set -euo pipefail
+    # 绕过代理（如果需要）
+    export http_proxy=""
+    export https_proxy=""
 
-# Constants
-ISTORE_REPO="https://istore.istoreos.com/repo/all/store"
-REPO_DOMAIN_OLD="istore.linkease.com"
-REPO_DOMAIN_NEW="istore.istoreos.com"
-TEMP_OPKG="/tmp/is-opkg"
+    # 检查并安装curl
+    curl -V >/dev/null 2>&1 || {
+        echo "prereq: install curl"
+        opkg info curl | grep -Fqm1 curl || opkg update
+        opkg install curl || exit 1
+    }
 
-# Colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-NC='\033[0m' # No Color
+    # 获取最新的iStore IPK包
+    IPK=$($FCURL "$ISTORE_REPO/Packages.gz" | zcat | grep -m1 '^Filename: luci-app-store.*\.ipk$' | sed -n -e 's/^Filename: \(.\+\)$/\1/p')
 
-# Functions
-error() {
-  echo -e "${RED}[ERROR]${NC} $1" >&2
-  exit 1
+    [ -n "$IPK" ] || {
+        echo "Failed to get iStore IPK filename."
+        exit 1
+    }
+
+    # 下载并安装iStore
+    $FCURL "$ISTORE_REPO/$IPK" | tar -xzO ./data.tar.gz | tar -xzO ./bin/is-opkg >/tmp/is-opkg
+
+    [ -s "/tmp/is-opkg" ] || {
+        echo "Failed to extract is-opkg."
+        exit 1
+    }
+
+    chmod 755 /tmp/is-opkg
+    /tmp/is-opkg update || exit 1
+    /tmp/is-opkg opkg install --force-reinstall luci-lib-taskd luci-lib-xterm || exit 1
+    /tmp/is-opkg opkg install --force-reinstall luci-app-store || exit 1
+    [ -s "/etc/init.d/tasks" ] || /tmp/is-opkg opkg install --force-reinstall taskd || exit 1
+    [ -s "/usr/lib/lua/luci/cbi.lua" ] || /tmp/is-opkg opkg install luci-compat >/dev/null 2>&1
+
+    # 换源
+    sed -i 's/istore.linkease.com/istore.istoreos.com/g' /bin/is-opkg
+    sed -i 's/istore.linkease.com/istore.istoreos.com/g' /etc/opkg/compatfeeds.conf
+    sed -i 's/istore.linkease.com/istore.istoreos.com/g' /www/luci-static/istore/index.js
+
+    # 清理临时文件
+    rm -f /tmp/is-opkg
 }
 
-warning() {
-  echo -e "${YELLOW}[WARNING]${NC} $1" >&2
-}
-
-info() {
-  echo -e "${GREEN}[INFO]${NC} $1"
-}
-
-check_prerequisites() {
-  # Check if running on OpenWrt
-  if [ ! -f "/etc/openwrt_release" ]; then
-    error "This script must be run on an OpenWrt system!"
-  fi
-
-  # Check for root
-  if [ "$(id -u)" -ne 0 ]; then
-    error "This script must be run as root!"
-  fi
-
-  # Check for curl
-  if ! command -v curl >/dev/null 2>&1; then
-    info "Installing curl..."
-    opkg update || warning "Failed to update package lists"
-    opkg install curl || error "Failed to install curl"
-  fi
-}
-
-download_istore() {
-  info "Downloading iStore package information..."
-  IPK=$(curl --fail --show-error "$ISTORE_REPO/Packages.gz" | \
-    zcat | \
-    grep -m1 '^Filename: luci-app-store.*\.ipk$' | \
-    sed -n -e 's/^Filename: \(.\+\)$/\1/p')
-
-  [ -n "$IPK" ] || error "Failed to find iStore package in repository"
-
-  info "Downloading and extracting iStore installer..."
-  curl --fail --show-error "$ISTORE_REPO/$IPK" | \
-    tar -xzO ./data.tar.gz | \
-    tar -xzO ./bin/is-opkg > "$TEMP_OPKG" || \
-    error "Failed to download or extract iStore installer"
-
-  [ -s "$TEMP_OPKG" ] || error "Downloaded installer is empty"
-  chmod 755 "$TEMP_OPKG"
-}
-
-install_packages() {
-  info "Updating package lists..."
-  "$TEMP_OPKG" update || warning "Package list update failed"
-
-  info "Installing dependencies..."
-  "$TEMP_OPKG" opkg install --force-reinstall luci-lib-taskd luci-lib-xterm || \
-    error "Failed to install dependencies"
-
-  info "Installing luci-app-store..."
-  "$TEMP_OPKG" opkg install --force-reinstall luci-app-store || \
-    error "Failed to install luci-app-store"
-
-  if [ ! -s "/etc/init.d/tasks" ]; then
-    info "Installing taskd..."
-    "$TEMP_OPKG" opkg install --force-reinstall taskd || \
-      warning "Failed to install taskd"
-  fi
-
-  if [ ! -s "/usr/lib/lua/luci/cbi.lua" ]; then
-    info "Installing luci-compat..."
-    "$TEMP_OPKG" opkg install luci-compat >/dev/null 2>&1 || \
-      warning "Failed to install luci-compat"
-  fi
-}
-
-update_repo_urls() {
-  info "Updating repository URLs..."
-  for file in /bin/is-opkg /etc/opkg/compatfeeds.conf /www/luci-static/istore/index.js; do
-    if [ -f "$file" ]; then
-      sed -i "s/$REPO_DOMAIN_OLD/$REPO_DOMAIN_NEW/g" "$file" || \
-        warning "Failed to update $file"
-    else
-      warning "File not found: $file (skipping URL update)"
-    fi
-  done
-}
-
-cleanup() {
-  if [ -f "$TEMP_OPKG" ]; then
-    rm -f "$TEMP_OPKG" || warning "Failed to remove temporary file"
-  fi
-}
-
-# Main execution
-main() {
-  info "Starting iStore installation..."
-  
-  check_prerequisites
-  download_istore
-  install_packages
-  update_repo_urls
-  cleanup
-  
-  info "iStore installation completed successfully!"
-  info "You can now access iStore through the LuCI web interface."
-}
-
-# Execute main function
-main
+do_istore
+EOF
