@@ -2,6 +2,11 @@
 
 ## 📦 方案选择
 
+graph LR
+   客户端-->|53|MosDNS
+   MosDNS-->|5335|AdGuardHome
+   AdGuardHome-->|8553|上游DNS
+   
 ### 方案1：固件内置版
 - 使用固件自带AdGuardHome
 - 直接粘贴 AdGuardHome-cn.yaml 内容到模板
@@ -19,13 +24,19 @@
 ```
 mkdir -p /mnt/mmcblk2p4/adg
 ```
-- SSH给Docker部署命令
+- SSH器部署命令
 ```
 wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
-
-
-
-
+```
+关键配置说明
+- 端口映射
+- 管理界面：3000→3001（避免冲突）
+- DNS服务：53→8553等（需调整上游DNS设置）
+- DoT服务：853→8554
+性能优化
+- 启用DNS缓存
+- 建议查询日志保留24小时
+- 国内用户推荐使用自己更改或者博主的cn_yaml的优化规则
 
 
 
