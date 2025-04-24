@@ -1,93 +1,16 @@
----
-title: "双AdGuardHome及OpenWrt工具合集与全球DNS收集"
-author: Namia-X
-date: 2023-11-15
-categories: [网络技术]
-tags: [AdGuardHome, OpenWrt, DNS]
-header:
-  overlay_image: /assets/img/network-bg.jpg
-  caption: "网络优化工具集合"
-toc: true
-toc_sticky: true
----
+# 双AdGuardHome及OpenWrt商店及Linux部分工具合集以及DNS收集 by [Namia-X]
 
-## 📦 广告拦截黑名单
-[立即获取广告拦截规则](https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/refs/heads/main/AdGuard模板/广告拦截黑名单.txt){: .btn .btn--primary}
+### 附赠[`国内外广告部分拦截黑名单和白名单`](https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/refs/heads/main/AdGuard%E6%A8%A1%E6%9D%BF/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E9%BB%91%E5%90%8D%E5%8D%95.txt)
 
----
+## 1 双AdGuardHome一键安装脚本即使用方法举一反三
 
-## 1️⃣ 双AdGuardHome部署指南
-
-### 1.1 Docker版配置
+### 1.1 **基于你已经安装了docker版agd可以使用模板进行复制和上传，或者Docker版自己配置**
 ```plaintext
-配置路径：
-/mnt/mmcblk2p4/adg/confdir1/AdGuardHome.yaml
-配置界面预览{: .shadow}
-
-端口配置：
-
-管理界面：ip:8553 / ip:8554
-
-监听端口：127.0.0.1:8553 / 127.0.0.1:8554
-
-端口设置{: .shadow} DNS设置{: .shadow}
-
-1.2 全平台安装脚本
-bash
-# 创建目录
-mkdir -p /mnt/mmcblk2p4/adg
-
-# 三种安装方式任选
-wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh)"
-sudo ./adg.sh
-交互菜单操作顺序：
-
-plaintext
-3 → 1 → 1 → 1 → 1 → 0 → 0 → 3 → 1 → 1
-脚本界面{: .shadow}
-
-2️⃣ OpenWrt增强组件
-iStore商店安装
-bash
-wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
-网络向导
-bash
-is-opkg install luci-i18n-quickstart-zh-cn
-3️⃣ Linux管理工具箱
-全能管理脚本
-bash
-curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/cn/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
-VPS节点工具
-bash
-curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
-🌐 全球DNS服务器精选
-国内DNS
-服务商	IPv4	DoH
-腾讯	119.29.29.29	doh.pub
-阿里	223.5.5.5	dns.alidns.com
-国际DNS
-plaintext
-Google DNS:
-• IPv4: 8.8.8.8
-• DoT: dns.google
-
-Cloudflare:
-• IPv4: 1.1.1.1
-• DoH: https://cloudflare-dns.com/dns-query
-本文所有工具均来自开源项目，使用前请确认设备兼容性
-项目维护：@Namia-X
-
-
-
-
-
-
-
-
-
-
-
+1. 本身附带有AdGuardHome并且在服务里面找到了AdGuardHome你可以直接复制AdGuardHome-cn.yaml此文件里面的，在AdGuardHome模板手动复制粘贴就行，自己找的ipk及run安装包一样方法使用模板。
+2. 基于你使用Docker 命令1.2创建的AdGuardHome，文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就1.2创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径，相反你也可以ip3000自己配，博主本人模板只是把它当作了第二dns用作拦截国外广告。
+3. 如何搭配mosdns或者smtdns运行看你自己，服务的的agd不作为dns服务器选择无
+4. 如果你用我模版记得看对应端口转发和访问端口转发如果不喜欢自行改，分别是，管理 ip:8553.ip:8554/监听127.0.0.1:8553.127.0.0.1:8554。
+5. 二选一不需要删掉固件自带的agd，你也可以全docker板agd。
 
 
 
