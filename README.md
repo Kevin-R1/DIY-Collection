@@ -97,8 +97,10 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
-
-
+飞牛NAS优化脚本
+```
+mkdir script && cd script && curl -k -o run.sh "https://pub-46d21cac9c7d44b79d73abfeb727999f.r2.dev/Linux%E8%84%9A%E6%9C%AC/%E9%A3%9E%E7%89%9B/run.sh" && bash run.sh
+```
 # DNS收集服务器列表，按**国内**和**国外**分类。📦
 ## 1 **国内DNS服务器**
 1.1 腾讯 DNS
