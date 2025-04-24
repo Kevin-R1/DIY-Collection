@@ -13,19 +13,16 @@
 5. 二选一不需要删掉固件自带的agd，你也可以全docker板agd。
 ```
 ### 1.2 其他固件如X86和RK瑞芯微处理器下的op和带Docker的设备
-# 创建文件夹
+### 创建文件夹
 mkdir -p /mnt/mmcblk2p4/adg
 
-# 下载并运行脚本
+### 下载并运行脚本
 wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
 
-# 加速脚本
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh)"
+### 直接二次运行脚本进入交互菜单
+ .adg.sh
 
-# 直接运行脚本进入交互菜单
-sudo ./adg.sh
-
-# 操作顺序
+### 操作顺序
 3,1,1,1,1,0,0,3,1,1
 
 
