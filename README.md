@@ -2,10 +2,7 @@
 
 ## 📦 方案选择
 
-   客户端-->|53|MosDNS
-   MosDNS-->|5335|AdGuardHome
-   AdGuardHome-->|8553|上游DNS
-   
+![img.png](img/tp.png)
 ### 方案1：固件内置版
 - 使用固件自带AdGuardHome
 - 直接粘贴 AdGuardHome-cn.yaml 内容到模板
