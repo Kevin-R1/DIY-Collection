@@ -43,22 +43,26 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
 ```
 # Linux二款管理脚本合集需代理！
-1 推荐家用Linux工具箱 [`kejilion`]( https://github.com/kejilion/sh)
-# 首次运行
+## 推荐家用Linux工具箱 [`kejilion`]( https://github.com/kejilion/sh)
+### 首次运行
 ```
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/cn/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
 ```
-### 二次运行
-root输入K
-
-VPS节点工具箱 [`eooce`]( https://github.com/eooce/ssh_tool) 
-# 首次运行
+### 二次运行SSH
+```
+sudo -i
+K
+```
+# VPS节点工具箱 [`eooce`]( https://github.com/eooce/ssh_tool) 
+## 首次运行
 ```
 curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
 ```
-### 二次运行
+### 二次运行SSH
+```
+sudo -i
 ./ssh_tool.sh
-
+```
 
 
 
