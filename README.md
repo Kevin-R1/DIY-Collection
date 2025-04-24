@@ -36,23 +36,21 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 - 国内用户推荐使用自己更改或者博主的cn_yaml的优化规则
 
 
-# OpenWrt商店 [`悟空的日常`]( https://github.com/wukongdaily)
-SSH链接安装iStore商店 (ARM64 & x86-64通用)
+# OpenWrt需代理！
+商店 [`悟空的日常`]( https://github.com/wukongdaily)
+- SSH链接安装iStore商店 (ARM64 & x86-64通用)
 ```
 wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
 ```
-2.2 安装网络向导和首页 (ARM64 & x86-64通用)
-bash
-is-opkg install luci-i18n-quickstart-zh-cn
-# Linux管理脚本合集### by[`kejilion`]( https://github.com/kejilion/sh) [`eooce`]( https://github.com/eooce/ssh_tool) 
-3.1 家用Linux工具箱 by kejilion
+# Linux管理脚本合集
+1 家用Linux工具箱 [`kejilion`]( https://github.com/kejilion/sh)
 bash
 # 首次运行
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/cn/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
 
 # 二次运行
 ./kejilion.sh
-3.2 VPS节点工具箱 by eooce
+3.2 VPS节点工具箱 [`eooce`]( https://github.com/eooce/ssh_tool) 
 bash
 # 首次运行
 curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
