@@ -18,7 +18,8 @@
 ```
 mkdir -p /mnt/mmcblk2p4/adg
 ```
-- SSH器部署命令N1部署直接用
+- 容器部署命令.
+- N1部署直接用
 ```
 wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
 ```
@@ -26,6 +27,7 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 ```
 . adg.sh
 ```
+
 关键配置说明
 - 端口映射
 - 管理界面：3000→3001（避免冲突）
@@ -33,7 +35,9 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 性能优化
 - 启用DNS缓存
 - 建议查询日志保留24小时
-- 国内用户推荐使用自己更改或者博主的cn_yaml的优化规则
+- 国内用户推荐使用自己更改或者博主的AdGuard模板的优化规则
+- - ![img.png](img/1.png)
+- 国内外用户文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就Docker部署创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径
 
 
 # OpenWrt
