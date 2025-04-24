@@ -14,7 +14,16 @@
 - 一键配置生效
 
 ### 方案2：Docker版部署（推荐隔离环境）
-**准备步骤
+- 准备步骤
+- 1 SSH给Docker固件创建文件夹
+```
+mkdir -p /mnt/mmcblk2p4/adg
+```
+- SSH给Docker部署命令
+```
+wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
+
+
 
 
 
