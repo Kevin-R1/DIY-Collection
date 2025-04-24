@@ -45,7 +45,7 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 # OpenWrt
 luci-app-mosdns：需代理！
 ```
-sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/luci-app-mosdns.sh)"
+sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/luci-app-mosdns.sh)"
 ```
 商店 [`悟空的日常`]( https://github.com/wukongdaily)
 - SSH链接安装iStore商店 (ARM64 & x86-64通用)
