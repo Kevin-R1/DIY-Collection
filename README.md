@@ -1,6 +1,5 @@
-# AdGuardHome 双模式部署指南
+# AdGuardHome 双模式部署指南📦 
 ## 附赠[`国内外广告部分拦截黑名单和白名单`](https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/refs/heads/main/AdGuard%E6%A8%A1%E6%9D%BF/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E9%BB%91%E5%90%8D%E5%8D%95.txt)
-## 📦 方案选择
 ![img.png](img/tp.png)
 ### 方案1：OpenWrt固件内置版
 - 使用固件自带AdGuardHome
@@ -42,7 +41,7 @@ wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh
 - 国内外用户文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就Docker部署创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径
 
 
-# OpenWrt
+# OpenWrt插件
 luci-app-mosdns：需代理！
 ```
 sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/luci-app-mosdns.sh)"
@@ -52,7 +51,8 @@ sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/mai
 ```
 wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
 ```
-# Linux二款管理脚本合集：需代理！
+
+# 📦Linux二款管理脚本合集：需代理！
 ## 推荐家用Linux工具箱 [`kejilion`]( https://github.com/kejilion/sh)
 ### 首次运行
 ```
@@ -73,7 +73,7 @@ curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o 
 sudo -i
 ./ssh_tool.sh
 ```
-# Docker镜像加速命令
+# Docker镜像加速命令📦
 ##使用方法
 - 直接复制粘贴
 - Linux 系统，推荐 Debian 或 Ubuntu LTS，NAS比如飞牛os都行
@@ -92,7 +92,7 @@ sudo systemctl restart docker
 ```
 
 
-# DNS收集服务器列表，按**国内**和**国外**分类。
+# DNS收集服务器列表，按**国内**和**国外**分类。📦
 ## 1 **国内DNS服务器**
 1.1 腾讯 DNS
 腾讯 DNS 基于 BGP Anycast 技术，不论用户身在何地，都可就近访问服务。支持谷歌 ECS 协议，配合 DNSPod 权威解析，可以给用户提供出最准确的解析结果，承诺不劫持解析结果。
