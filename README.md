@@ -36,14 +36,14 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 - 国内用户推荐使用自己更改或者博主的cn_yaml的优化规则
 
 
-# OpenWrt需代理！
+# OpenWrt
 商店 [`悟空的日常`]( https://github.com/wukongdaily)
 - SSH链接安装iStore商店 (ARM64 & x86-64通用)
 ```
 wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
 ```
-# Linux管理脚本合集
-1 家用Linux工具箱 [`kejilion`]( https://github.com/kejilion/sh)
+# Linux二款管理脚本合集需代理！
+1 推荐家用Linux工具箱 [`kejilion`]( https://github.com/kejilion/sh)
 # 首次运行
 ```
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/cn/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
