@@ -47,6 +47,8 @@ adg.sh install
 - - ![img.png](img/1.png)
 - 国内外用户文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就Docker部署创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径
 ```
+
+
 # OpenWrt插件
 - luci-app-mosdns：需代理！
 ```
@@ -60,7 +62,7 @@ luci-app-mosdns.sh install
 ```
 wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
 ```
-
+```
 # 📦Linux二款管理脚本合集：需代理！
 ## 推荐家用Linux工具箱 [`kejilion`]( https://github.com/kejilion/sh)
 ### 首次运行
