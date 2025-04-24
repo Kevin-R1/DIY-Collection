@@ -1,5 +1,5 @@
 # AdGuardHome 双模式部署指南
-## 附赠[`国内外广告部分拦截黑名单和白名单`](https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/refs/heads/main/AdGuard%E6%A8%A1%E6%9D%BF/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E9%BB%91%E5%90%8D%E5%8D%95.txt)
+## 附赠[`国内外广告部分拦截黑名单和白名单`](https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/refs/heads/main/AdGuard%E6%A8%A1%E6%9D%BF/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E9%BB%91%E5%90%8D%E5%8D%95.txt)
 ## 📦 方案选择
 ![img.png](img/tp.png)
 ### 方案1：固件内置版
@@ -21,7 +21,7 @@ mkdir -p /mnt/mmcblk2p4/adg
 - 容器部署命令.
 - N1部署直接用
 ```
-wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
+wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh adg.sh
 ```
 - 二次运行脚本进入交互菜单
 ```
