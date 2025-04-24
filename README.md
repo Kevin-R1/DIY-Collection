@@ -1,3 +1,55 @@
+# AdGuardHome 双模式部署指南
+
+## 📦 方案选择
+
+### 方案1：固件内置版
+```plaintext
+- 使用固件自带AdGuardHome
+- 直接粘贴 AdGuardHome-cn.yaml 内容到模板
+- 重启服务生效
+- 管理配置
+- 保持默认DNS服务端口（如53）
+通过Web界面（通常3000端口）模板更改管理8551,8552监听8553，8554进行管理
+优势：  
+- 系统深度集成  
+- 低资源消耗  
+- 一键配置生效
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 双AdGuardHome及OpenWrt商店及Linux部分工具合集以及DNS收集 by [Namia-X]
 
 ### 附赠[`国内外广告部分拦截黑名单和白名单`](https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/refs/heads/main/AdGuard%E6%A8%A1%E6%9D%BF/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E9%BB%91%E5%90%8D%E5%8D%95.txt)
