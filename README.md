@@ -30,10 +30,9 @@ wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh
 ```
 - 二次运行脚本进入交互菜单
 ```
-    . adg.sh
+. adg.sh
 ```
-    adg.sh install
-```
+adg.sh install
 关键配置说明
 - 端口映射
 - 管理界面：3000→3001（避免冲突）
@@ -46,7 +45,7 @@ wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh
 - 国内用户推荐使用自己更改或者复制博主的AdGuardHome-cn.yaml模板的优化规则
 - - ![img.png](img/1.png)
 - 国内外用户文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就Docker部署创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径
-```
+
 
 
 # OpenWrt插件
