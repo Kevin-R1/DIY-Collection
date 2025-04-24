@@ -1,0 +1,75 @@
+Ubuntu 常用命令大全
+===============================
+
+1. 系统信息
+----------------
+uname -a                # 查看内核/系统信息
+lsb_release -a          # 查看 Ubuntu 版本
+cat /etc/os-release     # 查看系统详细信息
+hostnamectl             # 查看主机名和系统信息
+uptime                 # 查看系统运行时间
+free -h                # 查看内存使用情况
+df -h                  # 查看磁盘空间
+du -sh <目录>          # 查看目录大小
+top/htop               # 动态查看进程资源占用
+neofetch               # 显示系统信息（需安装）
+
+2. 文件与目录操作
+----------------
+ls                     # 列出目录内容
+ls -l                  # 详细列表（权限、大小等）
+ls -a                  # 显示隐藏文件
+cd <目录>              # 切换目录
+pwd                    # 显示当前目录路径
+mkdir <目录名>         # 创建目录
+touch <文件名>         # 创建空文件
+cp <源> <目标>         # 复制文件/目录
+mv <源> <目标>         # 移动/重命名文件
+rm <文件>              # 删除文件
+rm -r <目录>           # 递归删除目录
+cat <文件>             # 查看文件内容
+less <文件>            # 分页查看文件
+head -n 5 <文件>       # 查看文件前5行
+tail -n 5 <文件>       # 查看文件后5行
+tail -f <日志文件>     # 实时查看日志
+find / -name "文件名"  # 查找文件
+grep "关键词" <文件>   # 搜索文件内容
+chmod +x <文件>        # 赋予可执行权限
+chown 用户:组 <文件>   # 修改文件所有者
+
+3. 网络管理
+----------------
+ip a/ifconfig          # 查看网络接口
+ping google.com        # 测试网络连通性
+nslookup google.com    # 查询DNS解析
+dig google.com         # 详细DNS查询
+curl ifconfig.me       # 查看公网IP
+wget <URL>            # 下载文件
+ssh user@host         # SSH远程登录
+scp <本地文件> user@host:<远程路径> # 远程复制文件
+netstat -tulnp        # 查看端口占用
+ufw enable            # 启用防火墙
+ufw allow 22          # 允许SSH端口
+ufw status            # 查看防火墙规则
+
+4. 软件包管理（APT）
+----------------
+sudo apt update        # 更新软件包列表
+sudo apt upgrade      # 升级所有软件
+sudo apt install <软件> # 安装软件
+sudo apt remove <软件> # 卸载软件
+sudo apt autoremove   # 清理无用依赖
+sudo apt search <关键词> # 搜索软件包
+sudo apt show <软件>  # 查看软件信息
+sudo apt list --installed # 查看已安装软件
+sudo snap install <软件> # 安装Snap软件
+sudo dpkg -i <deb文件> # 安装本地.deb包
+
+5. 用户与权限
+----------------
+sudo -i               # 切换到root
+sudo <命令>           # 以root权限执行
+whoami                # 查看当前用户
+id                    # 查看用户信息
+adduser <用户名>      # 创建新用户
+usermod -aG sudo <用户> # 赋予sudo
