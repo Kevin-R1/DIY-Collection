@@ -6,13 +6,13 @@
 - 使用固件自带AdGuardHome
 - 直接粘贴 AdGuardHome-cn.yaml 内容到模板
 - 重启服务生效
-- 保持默认DNS服务端口（如53）通过Web界面（通常3000端口）更改
+- 保持默认DNS服务端口（如53）或者通过Web界面（IP：3000端口）更改监听
 - 博主模板已通过Web更改固件自带AdGuardHome:3000管理端口为8551,Docker为8552监听固件自带8553,Docker为8554进行管理界面 ![img.png](img/3.png)
 #### 优势：  
 - 系统深度集成  
 - 低资源消耗  
 - 一键配置生效
-### 方案2：Docker版部署（推荐隔离环境）
+### 方案2：Docker版部署（推荐隔离环境）NAS等其他带Docker的直接用下面通用
 - 准备步骤
 - 1 SSH给Docker固件创建文件夹
 ```
@@ -30,7 +30,6 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 - 启用DNS缓存
 - 建议查询日志保留24小时
 - 国内用户推荐使用自己更改或者博主的cn_yaml的优化规则
-
 
 
 
