@@ -47,14 +47,15 @@ adg.sh install
 # OpenWrt插件
 - luci-app-mosdns：需代理！
 ```
+[1]
 sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/luci-app-mosdns.sh)"
-```
-    wget https://gitee.com/namia-x/DIY-Collection/raw/main/luci-app-mosdns.sh -O /usr/bin/luci-app-mosdns.sh
-    chmod +x /usr/bin/luci-app-mosdns.sh
-    luci-app-mosdns.sh install
+[2]
+wget https://gitee.com/namia-x/DIY-Collection/raw/main/luci-app-mosdns.sh -O /usr/bin/luci-app-mosdns.sh
+chmod +x /usr/bin/luci-app-mosdns.sh
+luci-app-mosdns.sh install
 ```
 iStore商店商店 [`悟空的日常`]( https://github.com/wukongdaily)
-
+```
 wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
 ```
 
