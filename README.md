@@ -31,6 +31,8 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 关键配置说明
 - 端口映射
 - 管理界面：3000→3001（避免冲突）
+- NAS等其他服务期带Docker的
+- ![img.png](img/2.png)
 - 监听服务：53→54.8553等（需调整上游DNS设置并不局限随意改只要不冲突）
 性能优化
 - 启用DNS缓存
