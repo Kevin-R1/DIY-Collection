@@ -73,7 +73,7 @@ curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o 
 sudo -i
 ./ssh_tool.sh
 ```
-# 镜像加速命令
+# Docker镜像加速命令
 ##使用方法
 - 直接复制粘贴
 - Linux 系统，推荐 Debian 或 Ubuntu LTS，NAS比如飞牛os都行
