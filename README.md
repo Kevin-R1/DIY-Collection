@@ -22,6 +22,61 @@ toc_sticky: true
 ```plaintext
 配置路径：
 /mnt/mmcblk2p4/adg/confdir1/AdGuardHome.yaml
+配置界面预览{: .shadow}
+
+端口配置：
+
+管理界面：ip:8553 / ip:8554
+
+监听端口：127.0.0.1:8553 / 127.0.0.1:8554
+
+端口设置{: .shadow} DNS设置{: .shadow}
+
+1.2 全平台安装脚本
+bash
+# 创建目录
+mkdir -p /mnt/mmcblk2p4/adg
+
+# 三种安装方式任选
+wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh)"
+sudo ./adg.sh
+交互菜单操作顺序：
+
+plaintext
+3 → 1 → 1 → 1 → 1 → 0 → 0 → 3 → 1 → 1
+脚本界面{: .shadow}
+
+2️⃣ OpenWrt增强组件
+iStore商店安装
+bash
+wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
+网络向导
+bash
+is-opkg install luci-i18n-quickstart-zh-cn
+3️⃣ Linux管理工具箱
+全能管理脚本
+bash
+curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/cn/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
+VPS节点工具
+bash
+curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
+🌐 全球DNS服务器精选
+国内DNS
+服务商	IPv4	DoH
+腾讯	119.29.29.29	doh.pub
+阿里	223.5.5.5	dns.alidns.com
+国际DNS
+plaintext
+Google DNS:
+• IPv4: 8.8.8.8
+• DoT: dns.google
+
+Cloudflare:
+• IPv4: 1.1.1.1
+• DoH: https://cloudflare-dns.com/dns-query
+本文所有工具均来自开源项目，使用前请确认设备兼容性
+项目维护：@Namia-X
 
 
 
