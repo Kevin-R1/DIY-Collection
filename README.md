@@ -25,11 +25,11 @@ wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh
     wget https://gitee.com/namia-x/DIY-Collection/raw/main/adg.sh -O /usr/bin/adg.sh
     chmod +x /usr/bin/adg.sh
     adg.sh install
-```
-- 二次运行脚本进入交互菜单
 
+- 二次运行脚本进入交互菜单
 ```
 . adg.sh
+
 ```
 adg.sh install
 ```
