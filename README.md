@@ -1,3 +1,70 @@
+---
+title: "双AdGuardHome及OpenWrt工具合集与全球DNS收集"
+author: Namia-X
+date: 2023-11-15
+categories: [网络技术]
+tags: [AdGuardHome, OpenWrt, DNS]
+header:
+  overlay_image: /assets/img/network-bg.jpg
+  caption: "网络优化工具集合"
+toc: true
+toc_sticky: true
+---
+
+## 📦 广告拦截黑名单
+[立即获取广告拦截规则](https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/refs/heads/main/AdGuard模板/广告拦截黑名单.txt){: .btn .btn--primary}
+
+---
+
+## 1️⃣ 双AdGuardHome部署指南
+
+### 1.1 Docker版配置
+```plaintext
+配置路径：
+/mnt/mmcblk2p4/adg/confdir1/AdGuardHome.yaml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 双AdGuardHome及OpenWrt商店及Linux部分工具合集以及DNS收集 by [Namia-X]
 ### 附赠[`国内外广告部分拦截黑名单和白名单`](https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/refs/heads/main/AdGuard%E6%A8%A1%E6%9D%BF/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E9%BB%91%E5%90%8D%E5%8D%95.txt)
 ### 1  双AdGuardHome一键安装脚本即使用方法举一反三
