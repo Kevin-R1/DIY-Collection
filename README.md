@@ -32,6 +32,10 @@ sudo ./adg.sh
 ```
 如果其他设备端口3000被占用记得更改。
 - ![img.png](img/2.png)
+# luci-app-mosdns
+```
+sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/luci-app-mosdns.sh)"
+```
 #  2 OpenWrt[`悟空的日常`]( https://github.com/wukongdaily) 所撰写的iStore商店和设置向导
 ### 2.1**安装iStore商店(ARM64 & x86-64通用)**
 ```
