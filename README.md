@@ -29,6 +29,7 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 ```
 3,1,1,1,1,0,0,3,1,1
 ```
+## 2 OpenWrt悟空的日常 所撰写的iStore商店和设置向导
 
 
 
