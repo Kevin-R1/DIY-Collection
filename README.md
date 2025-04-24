@@ -54,10 +54,10 @@ sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/mai
     luci-app-mosdns.sh install
 ```
 iStore商店商店 [`悟空的日常`]( https://github.com/wukongdaily)
-```
+
 wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
 ```
-```
+
 # 📦Linux二款管理脚本合集：需代理！
 ## 推荐家用Linux工具箱 [`kejilion`]( https://github.com/kejilion/sh)
 ### 首次运行
