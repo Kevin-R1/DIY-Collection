@@ -14,13 +14,17 @@
 - 一键配置生效
 ### 方案2：Docker版部署（推荐隔离环境）NAS等其他带Docker的直接用下面通用
 - 准备步骤
-- 1 SSH给Docker固件创建文件夹
+- SSH给Docker固件创建文件夹
 ```
 mkdir -p /mnt/mmcblk2p4/adg
 ```
-- SSH器部署命令
+- SSH器部署命令N1部署直接用
 ```
 wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
+```
+- 二次运行脚本进入交互菜单
+```
+. adg.sh
 ```
 关键配置说明
 - 端口映射
@@ -30,7 +34,6 @@ wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh
 - 启用DNS缓存
 - 建议查询日志保留24小时
 - 国内用户推荐使用自己更改或者博主的cn_yaml的优化规则
-
 
 
 
@@ -81,7 +84,7 @@ mkdir -p /mnt/mmcblk2p4/adg
 ```
 wget https://raw.githubusercontent.com/Kevin-R1/Two-docker-agd/main/adg.sh && sh adg.sh
 ```
-### 直接二次运行脚本进入交互菜单
+### 直接
 ```
  .adg.sh
 ```
