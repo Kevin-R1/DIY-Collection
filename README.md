@@ -20,8 +20,9 @@ mkdir -p /mnt/mmcblk2p4/adg
 - 容器部署命令
 - N1部署直接用
 ```
+[1]
 wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh adg.sh
-
+[2]
 wget https://gitee.com/namia-x/DIY-Collection/raw/main/adg.sh -O /usr/bin/adg.sh
 chmod +x /usr/bin/adg.sh
 adg.sh install
@@ -29,8 +30,6 @@ adg.sh install
 - 二次运行脚本进入交互菜单
 ```
 [1]. adg.sh       [2]adg.sh install
-```
-
 ```
 关键配置说明
 - 端口映射
@@ -44,7 +43,7 @@ adg.sh install
 - 国内用户推荐使用自己更改或者复制博主的AdGuardHome-cn.yaml模板的优化规则
 - - ![img.png](img/1.png)
 - 国内外用户文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就Docker部署创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径
-```
+
 # OpenWrt插件
 - luci-app-mosdns：需代理！
 ```
