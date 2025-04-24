@@ -44,7 +44,7 @@ wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.
 2.2 安装网络向导和首页 (ARM64 & x86-64通用)
 bash
 is-opkg install luci-i18n-quickstart-zh-cn
-# Linux管理脚本合集
+# Linux管理脚本合集### by[`kejilion`]( https://github.com/kejilion/sh) [`eooce`]( https://github.com/eooce/ssh_tool) 
 3.1 家用Linux工具箱 by kejilion
 bash
 # 首次运行
