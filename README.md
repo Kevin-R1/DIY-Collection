@@ -23,6 +23,7 @@ mkdir -p /mnt/mmcblk2p4/adg
 wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh adg.sh
 ```
 - 国内用户加速命令
+```
 wget https://gitee.com/namia-x/DIY-Collection/raw/main/adg.sh -O /usr/bin/adg.sh
 chmod +x /usr/bin/adg.sh
 adg.sh install
