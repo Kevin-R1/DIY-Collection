@@ -1,0 +1,96 @@
+1. 系统信息
+命令	说明
+uname -a	查看内核/系统信息
+lsb_release -a	查看 Ubuntu 版本
+cat /etc/os-release	查看系统详细信息
+hostnamectl	查看主机名和系统信息
+uptime	查看系统运行时间
+free -h	查看内存使用情况
+df -h	查看磁盘空间
+du -sh <目录>	查看目录大小
+top 或 htop	动态查看进程资源占用
+neofetch	显示系统信息（需安装）
+2. 文件与目录操作
+命令	说明
+ls	列出目录内容
+ls -l	详细列表（权限、大小等）
+ls -a	显示隐藏文件
+cd <目录>	切换目录
+pwd	显示当前目录路径
+mkdir <目录名>	创建目录
+touch <文件名>	创建空文件
+cp <源> <目标>	复制文件/目录
+mv <源> <目标>	移动/重命名文件
+rm <文件>	删除文件
+rm -r <目录>	递归删除目录
+cat <文件>	查看文件内容
+less <文件>	分页查看文件
+head -n 5 <文件>	查看文件前 5 行
+tail -n 5 <文件>	查看文件后 5 行
+tail -f <日志文件>	实时查看日志
+find / -name "文件名"	查找文件
+grep "关键词" <文件>	搜索文件内容
+chmod +x <文件>	赋予可执行权限
+chown 用户:组 <文件>	修改文件所有者
+3. 网络管理
+命令	说明
+ip a 或 ifconfig	查看网络接口
+ping google.com	测试网络连通性
+nslookup google.com	查询 DNS 解析
+dig google.com	详细 DNS 查询
+curl ifconfig.me	查看公网 IP
+wget <URL>	下载文件
+ssh user@host	SSH 远程登录
+scp <本地文件> user@host:<远程路径>	远程复制文件
+netstat -tulnp	查看端口占用
+ufw enable	启用防火墙
+ufw allow 22	允许 SSH 端口
+ufw status	查看防火墙规则
+4. 软件包管理（APT）
+命令	说明
+sudo apt update	更新软件包列表
+sudo apt upgrade	升级所有软件
+sudo apt install <软件>	安装软件
+sudo apt remove <软件>	卸载软件
+sudo apt autoremove	清理无用依赖
+sudo apt search <关键词>	搜索软件包
+sudo apt show <软件>	查看软件信息
+sudo apt list --installed	查看已安装软件
+sudo snap install <软件>	安装 Snap 软件
+sudo dpkg -i <deb文件>	安装本地 .deb 包
+5. 用户与权限
+命令	说明
+sudo -i	切换到 root
+sudo <命令>	以 root 权限执行
+whoami	查看当前用户
+id	查看用户信息
+adduser <用户名>	创建新用户
+usermod -aG sudo <用户>	赋予 sudo 权限
+passwd <用户>	修改密码
+su - <用户>	切换用户
+visudo	编辑 sudoers 文件
+6. 进程管理
+命令	说明
+ps aux	查看所有进程
+kill <PID>	终止进程
+kill -9 <PID>	强制终止进程
+pkill <进程名>	按名称终止进程
+bg / fg	后台/前台运行任务
+systemctl start <服务>	启动服务
+systemctl stop <服务>	停止服务
+systemctl status <服务>	查看服务状态
+journalctl -u <服务>	查看服务日志
+7. 压缩与解压
+命令	说明
+tar -czvf 压缩包.tar.gz <目录>	压缩为 .tar.gz
+tar -xzvf 压缩包.tar.gz	解压 .tar.gz
+zip -r 压缩包.zip <目录>	压缩为 .zip
+unzip 压缩包.zip	解压 .zip
+8. 其他实用命令
+命令	说明
+history	查看命令历史
+!!	执行上一条命令
+alias 别名="命令"	设置命令别名
+crontab -e	编辑定时任务
+shutdown -h now	立即关机
+reboot	重启系统
