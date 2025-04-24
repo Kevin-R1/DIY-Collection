@@ -29,8 +29,6 @@ wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh
 - 二次运行脚本进入交互菜单
 ```
 . adg.sh
-
-```
 adg.sh install
 ```
 关键配置说明
