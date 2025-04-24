@@ -2,7 +2,6 @@
 
 ## 📦 方案选择
 
-graph LR
    客户端-->|53|MosDNS
    MosDNS-->|5335|AdGuardHome
    AdGuardHome-->|8553|上游DNS
