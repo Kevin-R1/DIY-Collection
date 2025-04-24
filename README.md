@@ -53,8 +53,9 @@ luci-app-mosdns：需代理！
 sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/luci-app-mosdns.sh)"
 ```
 
-商店 [`悟空的日常`]( https://github.com/wukongdaily)
+### iStore商店商店 [`悟空的日常`]( https://github.com/wukongdaily)
 - SSH链接安装iStore商店 (ARM64 & x86-64通用)
+
 ```
 wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
 ```
