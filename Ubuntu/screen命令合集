@@ -1,0 +1,148 @@
+使用ubuntuLts 或者debian或者其他
+使用以下命令来改变端口的汇换，白话就是在你ssh即便断开了还能继续使用，从而可以再次ssh连接顺带查看ip
+
+
+sudo apt update -y
+
+sudo apt install openssh-server -y
+
+sudo apt install screen -y
+
+ip add show #查看ubuntu的ip
+
+
+
+
+
+screen -S  999    
+按Ctrl + A  在按 D 退回最开始终端
+screen -ls  查看对应进程
+screen -r dino 再次进入最开始的总端
+
+
+<name>代数意思就是你便于记住的打个比方screen -S  999 ，<name>就变成了999
+
+
+Screen 命令详解
+1. 基本命令
+screen
+启动新会话。
+
+screen -S <name>
+对应新建终端。
+
+screen -r <pid/name>
+恢复指定会话（pid 或 name），比如screen -S  999，那么就会回到999这个终端中了
+
+screen -ls
+列出所有会话（含 detached 状态）白话查看SSH对应进程
+
+screen -d <pid/name>
+强制断开会话（不终止）。
+
+screen -D <pid/name>
+强制断开并尝试重新连接。
+
+screen -x
+共享已存在的会话（多用户协作）。
+
+screen -X
+向指定会话发送命令（用于脚本）。
+
+2. 会话内操作（前缀键: Ctrl + A）
+Ctrl + A c
+创建新窗口。
+
+Ctrl + A n / Ctrl + A p
+切换下一个/上一个窗口。
+
+Ctrl + A 0-9
+切换到第 0-9 个窗口。
+
+Ctrl + A "
+列出所有窗口供选择。
+
+Ctrl + A A
+重命名当前窗口。
+
+Ctrl + A d
+断开会话（后台运行）。
+
+Ctrl + A k
+终止当前窗口。
+
+Ctrl + A \
+终止整个会话（所有窗口）。
+
+Ctrl + A ?
+显示帮助。
+
+3. 窗口分割
+Ctrl + A S
+水平分割。
+
+Ctrl + A |
+垂直分割（需配置支持）。
+
+Ctrl + A Tab
+切换分割区域。
+
+Ctrl + A X
+关闭当前区域。
+
+Ctrl + A Q
+关闭所有分割（保留当前）。
+
+4. 日志记录
+screen -L
+启动时记录日志（默认 screenlog.0）。
+
+Ctrl + A H
+手动开始/停止记录当前窗口日志。
+
+5. 多用户共享
+创建共享会话：
+
+bash
+screen -S shared -multiuser on
+授权用户：
+
+bash
+Ctrl + A :acladd <username>
+其他用户加入：
+
+bash
+screen -x shared
+6. 配置文件 (~/.screenrc)
+示例配置：
+
+bash
+# 修改前缀键为 Ctrl + B
+escape ^Bb
+
+# 启用垂直分割
+bind | split -v
+
+# 状态栏显示
+hardstatus alwayslastline "%{= bw}%H %{= r}%l %{= w}%-w%{=b bw}%n %t%{-}%+w"
+7. 常用场景
+后台运行任务：
+
+bash
+screen -S task
+# 运行命令后按 `Ctrl + A d` 断开
+# 恢复：screen -r task
+共享终端：
+
+bash
+screen -S shared
+# 他人接入：screen -x shared
+记录日志：
+
+bash
+screen -L -S log_session
+# 日志保存为 `screenlog.0`
+8. 注意事项
+会话冲突时，用 screen -d -r <pid> 强制接管。
+
+关键任务建议结合 nohup 或 tmux 使用。
