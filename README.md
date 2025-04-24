@@ -97,10 +97,8 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
-# fnscript
 ## 一个专注于优化FnOS的脚本
-- ![img.png](img/1.png)
- \
+- ![img.png](img/4.png)
 - 脚本每个功能均进行过测试，确保大部分状态环境下运行安全可靠
 - 连接SSH复制粘贴以下指令即可
 ```bash
