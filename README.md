@@ -17,7 +17,7 @@
 ```
 mkdir -p /mnt/mmcblk2p4/adg
 ```
-- 容器部署命令
+- 容器部署命令[1]：需代理！
 - N1部署直接用
 ```
 [1]
@@ -45,7 +45,7 @@ adg.sh install
 - 国内外用户文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就Docker部署创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径
 
 # OpenWrt插件
-- luci-app-mosdns：需代理！
+- luci-app-mosdns，[1]：需代理！
 ```
 [1]
 sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/luci-app-mosdns.sh)"
