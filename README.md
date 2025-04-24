@@ -27,11 +27,10 @@ wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh
     adg.sh install
 
 - 二次运行脚本进入交互菜单
+    . adg.sh
 ```
-. adg.sh
-```
-adg.sh install
-```
+    adg.sh install
+
 关键配置说明
 - 端口映射
 - 管理界面：3000→3001（避免冲突）
