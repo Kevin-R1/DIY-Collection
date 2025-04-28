@@ -5,7 +5,6 @@
 # 网页端口8551
 # 监听端口8553
 
-
 http:
   pprof:
     port: 6060
@@ -33,7 +32,7 @@ dns:
   upstream_dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-    - https://doh.360.cn/dns-query
+    - 180.184.1.1
     - https://dns.twnic.tw/dns-query
   upstream_dns_file: ""
   bootstrap_dns:
@@ -79,6 +78,8 @@ dns:
   use_http3_upstreams: false
   serve_plain_dns: true
   hostsfile_enabled: true
+  pending_requests:
+    enabled: true
 tls:
   enabled: false
   server_name: ""
@@ -226,4 +227,6 @@ os:
   group: ""
   user: ""
   rlimit_nofile: 0
+schema_version: 29
+
 schema_version: 29
