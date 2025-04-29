@@ -1,4 +1,3 @@
-
 # 模板为大陆拦截国外
 # 账户root
 # 密码12345678
@@ -227,6 +226,4 @@ os:
   group: ""
   user: ""
   rlimit_nofile: 0
-schema_version: 29
-
 schema_version: 29
