@@ -1,0 +1,143 @@
+在OpenWRT中，可以通过以下命令快速启用IPv6功能，无需编辑配置文件或使用Web界面（LuCI），适合通过SSH直接操作：
+
+---
+
+### **1. 检查当前IPv6状态**
+```bash
+ifconfig | grep inet6          # 查看是否存在非"fe80"开头的IPv6地址
+ip -6 route show              # 检查IPv6路由表
+ping6 -c 4 2400:3200::1       # 测试IPv6连通性（阿里云DNS）
+```
+
+---
+
+### **2. 一键启用IPv6的命令集合**
+#### **方法1：直接通过UCI命令配置**
+```bash
+# 设置WAN口使用DHCPv6获取IPv6
+uci set network.wan.proto='dhcpv6'
+uci set network.wan.reqaddress='try'
+uci set network.wan.reqprefix='auto'
+
+# 启用LAN口的IPv6分配（RA和DHCPv6）
+uci set dhcp.lan.ra='server'
+uci set dhcp.lan.dhcpv6='server'
+uci set dhcp.lan.ndp='relay'
+uci set dhcp.lan.ra_management='1'
+uci set dhcp.lan.ra_default='1'
+
+# 放行IPv6防火墙规则（ICMPv6和转发）
+uci add firewall rule >/dev/null 2>&1
+uci set firewall.@rule[-1].name='Allow-IPv6-Forward'
+uci set firewall.@rule[-1].src='wan'
+uci set firewall.@rule[-1].dest='lan'
+uci set firewall.@rule[-1].family='ipv6'
+uci set firewall.@rule[-1].target='ACCEPT'
+
+# 保存配置并重启服务
+uci commit
+/etc/init.d/network restart
+/etc/init.d/firewall restart
+/etc/init.d/odhcpd restart
+
+echo "IPv6已启用，等待1分钟后测试。"
+```
+
+#### **方法2：使用`sed`快速修改配置文件**
+```bash
+# 直接修改/etc/config/network（适用于DHCPv6）
+sed -i "/config interface 'wan'/,/^$/ s/proto='.*'/proto='dhcpv6'/" /etc/config/network
+sed -i "/config interface 'wan'/a \	option reqaddress 'try'\n	option reqprefix 'auto'" /etc/config/network
+
+# 修改/etc/config/dhcp启用IPv6服务
+sed -i "/config dhcp 'lan'/a \	option ra 'server'\n	option dhcpv6 'server'\n	option ra_management '1'" /etc/config/dhcp
+
+# 重启服务
+/etc/init.d/network restart
+/etc/init.d/odhcpd restart
+```
+
+---
+
+### **3. 验证IPv6是否生效**
+```bash
+# 检查接口IPv6地址
+ifconfig eth0.2 | grep inet6   # 替换为你的WAN接口名
+
+# 测试外网连通性
+ping6 -c 4 2001:4860:4860::8888  # Google IPv6 DNS
+
+# 查看客户端分配（需在局域网设备上测试）
+ip -6 neighbor show          # 查看IPv6邻居表
+```
+
+---
+
+### **4. 常见问题修复命令**
+#### **问题1：WAN口无法获取IPv6地址**
+```bash
+# 强制释放并重新请求IPv6
+killall odhcp6c
+/etc/init.d/network restart
+```
+
+#### **问题2：LAN客户端无IPv6地址**
+```bash
+# 手动重启RA服务
+/etc/init.d/odhcpd restart
+logread | grep odhcpd        # 查看服务日志
+```
+
+#### **问题3：IPv6能ping通但无法上网**
+```bash
+# 修改DNS为IPv6地址
+uci set network.wan6='interface'
+uci set network.wan6.proto='dhcpv6'
+uci set network.wan6.reqaddress='try'
+uci add_list dhcp.@dnsmasq[0].server='2001:4860:4860::8888'  # Google DNS
+uci commit
+/etc/init.d/network restart
+```
+
+---
+
+### **5. 关闭IPv6的命令**
+```bash
+# 恢复WAN口为IPv4
+uci set network.wan.proto='dhcp'
+uci delete network.wan.reqaddress
+uci delete network.wan.reqprefix
+
+# 禁用LAN口IPv6服务
+uci delete dhcp.lan.ra
+uci delete dhcp.lan.dhcpv6
+
+# 删除IPv6防火墙规则
+uci delete firewall.@rule[-1]
+uci commit
+/etc/init.d/network restart
+```
+
+---
+
+### **注意事项**
+1. **ISP支持**：确认你的光猫/上级路由已分配IPv6前缀（可通过`ip -6 route show`查看是否有`/64`或`/56`前缀）。
+2. **PPPoE拨号**：如果使用PPPoE，需额外启用IPv6：
+   ```bash
+   uci set network.wan.ipv6='1'
+   uci commit
+   ```
+3. **特殊网络**：校园网/企业网可能需要配置NDP代理或静态IPv6。
+
+---
+
+### **附：关键配置文件路径**
+| 文件 | 作用 |
+|------|------|
+| `/etc/config/network` | 定义接口协议（DHCPv6/PPPoE） |
+| `/etc/config/dhcp` | 控制RA/DHCPv6服务 |
+| `/etc/config/firewall` | IPv6流量规则 |
+
+通过以上命令可快速启用或调试OpenWRT的IPv6功能。如果仍失败，建议提供以下信息进一步排查：
+- `logread | grep -e odhcp -e radvd`
+- `ifconfig` 和 `ip -6 route show` 输出
