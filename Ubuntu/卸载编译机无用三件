@@ -1,0 +1,52 @@
+在 Ubuntu 中卸载预装的计算器、时钟和 `sysprof`（系统分析工具），可以通过终端命令完成。以下是具体步骤：
+
+---
+
+### **1. 卸载计算器（GNOME Calculator）**
+```bash
+sudo apt remove gnome-calculator
+```
+
+---
+
+### **2. 卸载时钟（GNOME Clocks）**
+```bash
+sudo apt remove gnome-clocks
+```
+
+---
+
+### **3. 卸载 Sysprof（系统分析工具）**
+```bash
+sudo apt remove sysprof
+```
+
+---
+
+### **可选操作**
+- **清理残留配置**（如果需要彻底删除配置）：
+  ```bash
+  sudo apt purge gnome-calculator gnome-clocks sysprof
+  ```
+- **自动移除依赖**（删除不再需要的依赖包）：
+  ```bash
+  sudo apt autoremove
+  ```
+
+---
+
+### **验证是否卸载成功**
+- 检查软件是否仍在：
+  ```bash
+  dpkg -l | grep -E "gnome-calculator|gnome-clocks|sysprof"
+  ```
+  若无输出，则表示已卸载。
+
+---
+
+### **注意事项**
+1. 确保你有管理员权限（`sudo`）。
+2. 卸载系统工具前，确认它们不会被其他依赖组件使用（一般计算器、时钟等是独立的，可以安全移除）。
+3. 如果使用其他桌面环境（如 KDE、XFCE），软件包名称可能不同。
+
+如果有其他问题，可以补充说明你的 Ubuntu 版本或桌面环境，我会进一步调整建议！
