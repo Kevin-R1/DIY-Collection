@@ -27,7 +27,7 @@ adg.sh install
 ```
 - 二次运行脚本进入交互菜单
 ```
-[1]. adg.sh       [2]adg.sh install
+[1]. adg.sh 
 ```
 关键配置说明
 - 端口映射
