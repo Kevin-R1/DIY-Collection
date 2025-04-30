@@ -43,9 +43,14 @@ adg.sh install
 - 国内外用户文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就Docker部署创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径
 
 # OpenWrt插件
-- luci-app-mosdns，：需代理！
+- luci-app-mosdns，：看本地是否需代理！(SSH)
 ```
-sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/luci-app-mosdns.sh)"
+更新 package
+```
+opkg update
+opkg install curl
+```
+sh -c "$(curl -ksS https://raw.githubusercontent.com/sbwml/luci-app-mosdns/v5/install.sh)"
 
 ```
 iStore商店商店 [`悟空的日常`]( https://github.com/wukongdaily)
