@@ -30,9 +30,7 @@ dns:
   refuse_any: true
   upstream_dns:
     - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
     - 180.184.1.1
-    - https://dns.twnic.tw/dns-query
   upstream_dns_file: ""
   bootstrap_dns:
     - 9.9.9.10
