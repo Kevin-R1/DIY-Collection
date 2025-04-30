@@ -1,9 +1,3 @@
-# 模板为大陆拦截国外
-# 账户root
-# 密码12345678
-# 网页端口8552
-# 监听端口8554
-
 http:
   pprof:
     port: 6060
@@ -77,6 +71,8 @@ dns:
   use_http3_upstreams: false
   serve_plain_dns: true
   hostsfile_enabled: true
+  pending_requests:
+    enabled: true
 tls:
   enabled: false
   server_name: ""
