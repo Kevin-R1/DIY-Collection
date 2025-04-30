@@ -44,12 +44,11 @@ adg.sh install
 
 # OpenWrt插件
 - luci-app-mosdns，：看本地是否需代理！(SSH)
-```
-更新 package
+- 更新 package
 ```
 opkg update
 opkg install curl
-```
+
 sh -c "$(curl -ksS https://raw.githubusercontent.com/sbwml/luci-app-mosdns/v5/install.sh)"
 
 ```
