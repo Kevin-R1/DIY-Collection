@@ -17,14 +17,12 @@
 ```
 mkdir -p /mnt/mmcblk2p4/adg
 ```
-- 容器部署命令[1]：需代理！
+- 容器部署命令：需代理！
 - N1部署直接用
 ```
-[1]
+
 wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh adg.sh
-[2]
-wget https://gitee.com/namia-x/DIY-Collection/raw/main/adg.sh -O /usr/bin/adg.sh
-chmod +x /usr/bin/adg.sh
+
 adg.sh install
 ```
 - 二次运行脚本进入交互菜单
@@ -45,39 +43,33 @@ adg.sh install
 - 国内外用户文件夹找到 /mnt/mmcblk2p4/adg/confdir1，如果没有就Docker部署创建并且上传AdGuardHome.yaml到confdir1此为docker版本配置的yaml文件上传路径
 
 # OpenWrt插件
-- luci-app-mosdns，[1]：需代理！
+- luci-app-mosdns，：需代理！
 ```
-[1]
 sh -c "$(curl -ksS https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/luci-app-mosdns.sh)"
-[2]
-wget https://gitee.com/namia-x/DIY-Collection/raw/main/luci-app-mosdns.sh -O /usr/bin/luci-app-mosdns.sh
-chmod +x /usr/bin/luci-app-mosdns.sh
-luci-app-mosdns.sh install
+
 ```
 iStore商店商店 [`悟空的日常`]( https://github.com/wukongdaily)
 ```
 wget -qO imm.sh https://cafe.cpolar.top/wkdaily/zero3/raw/branch/main/zero3/imm.sh && chmod +x imm.sh && ./imm.sh
 ```
 
-# 📦Linux二款管理脚本合集：需代理！
-## 推荐家用Linux工具箱 [`kejilion`]( https://github.com/kejilion/sh)
+# 📦Linux二款管理脚本合集：
+## 家用推荐Linux工具箱 [`kejilion`]( https://github.com/kejilion/sh)
 首次运行
 ```
 curl -sS -O https://raw.githubusercontent.com/kejilion/sh/refs/heads/main/cn/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
 ```
 二次运行SSH
 ```
-sudo -i
 K
 ```
-# VPS节点工具箱 [`eooce`]( https://github.com/eooce/ssh_tool) 
+# VPS推荐工具箱 [`eooce`]( https://github.com/eooce/ssh_tool) 
 首次运行
 ```
 curl -fsSL https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh -o ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
 ```
 二次运行SSH
 ```
-sudo -i
 ./ssh_tool.sh
 ```
 # Docker镜像加速命令📦
