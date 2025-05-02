@@ -1,0 +1,117 @@
+1   第一种
+
+要切换到测试版内核（6.12），请按照以下步骤操作：
+
+1. 进入配置菜单
+bash
+make menuconfig
+2. 导航到内核测试选项
+使用方向键定位到：
+
+Global build settings --->
+  [*] Advanced configuration options (for developers)
+按Enter进入后，找到并启用：
+
+[*] Use the testing kernel version
+3. 保存配置
+按Esc返回主菜单，选择"Save"保存配置。
+
+4. 清理旧编译文件（必须步骤）
+bash
+make target/linux/clean
+5. 重新编译
+bash
+make -j$(nproc) V=s
+验证内核版本
+编译完成后，可以通过以下方式验证：
+
+bash
+cat build_dir/target-*/linux-rockchip-armv8/linux-*/Makefile | grep "VERSION ="
+应该显示：
+
+VERSION = 6
+PATCHLEVEL = 12
+SUBLEVEL = 0
+注意事项
+测试版内核(6.12)可能不如稳定版(6.6)稳定
+
+如果编译失败，请检查日志中是否有缺失补丁的错误
+
+刷机后可通过uname -a确认实际运行的内核版本
+
+
+
+
+
+2 第二种
+
+
+
+如何从 6.6 切换到 6.12 内核？
+方法 1：通过 make menuconfig 启用测试内核
+进入配置界面：
+
+bash
+make menuconfig
+导航到以下路径：
+
+Global build settings --->
+  [*] Advanced configuration options (for developers)  # 启用开发者选项
+  [*] Use the testing kernel version                  # 启用测试内核（6.12）
+保存并退出（选择 <Save>）。
+
+方法 2：手动修改 .config 文件
+直接编辑 .config 文件：
+
+bash
+nano .config
+添加或修改以下行：
+
+ini
+CONFIG_TESTING_KERNEL=y  # 启用测试内核
+同步配置：
+
+bash
+make defconfig
+方法 3：强制修改 Makefile（不推荐）
+如果上述方法无效，可临时修改 target/linux/rockchip/Makefile：
+
+makefile
+KERNEL_PATCHVER:=6.12  # 强制覆盖为 6.12
+然后清理并重新编译：
+
+bash
+make target/linux/clean
+make -j$(nproc) V=s
+关键验证步骤
+检查生效的内核版本：
+
+bash
+grep "KERNEL_PATCHVER" include/kernel-version.mk
+输出应包含 6.12。
+
+编译后验证：
+
+bash
+cat build_dir/target-*/linux-rockchip-armv8/linux-*/Makefile | grep "VERSION ="
+预期输出：
+
+VERSION = 6
+PATCHLEVEL = 12
+SUBLEVEL = 0
+注意事项
+测试版内核的稳定性：
+6.12 标记为测试版（TESTING），可能存在未修复的 Bug，仅建议开发环境使用。
+
+清理编译缓存：
+切换内核后必须执行：
+
+bash
+make target/linux/clean
+补丁兼容性：
+确认 target/linux/rockchip/patches-6.12 目录存在，否则需更新源码：
+
+bash
+git pull
+./scripts/feeds update -a
+./scripts/feeds install -a
