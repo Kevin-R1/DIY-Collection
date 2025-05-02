@@ -21,7 +21,7 @@ mkdir -p /mnt/mmcblk2p4/adg
 - N1部署直接用
 ```
 
-wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/main/adg.sh && sh adg.sh
+wget https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/refs/heads/main/AdGuard%E6%A8%A1%E6%9D%BF/adg.sh && sh adg.sh
 
 adg.sh install
 ```
