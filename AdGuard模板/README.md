@@ -1,6 +1,6 @@
 # AdGuardHome 双模式部署指南📦 
 ## 附赠[`国内外广告部分拦截黑名单和白名单`](https://raw.githubusercontent.com/Kevin-R1/DIY-Collection/refs/heads/main/AdGuard%E6%A8%A1%E6%9D%BF/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E9%BB%91%E5%90%8D%E5%8D%95.txt)
-- ![img.png](img/tp.png)
+- ![img.png](DIY-Collection/img/tp.png)
 ### 方案1：OpenWrt固件内置版
 - 使用固件自带AdGuardHome
 - 直接粘贴 AdGuardHome-cn.yaml 内容到模板
