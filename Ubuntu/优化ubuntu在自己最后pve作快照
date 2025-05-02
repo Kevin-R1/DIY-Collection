@@ -1,25 +1,21 @@
 # Ubuntu系统加速指南
 
 以下是一些可以有效加速Ubuntu系统性能的方法：
-
 ## 1. 基本优化
-
 ### 禁用不必要的启动程序
-```
+
 sudo apt install gnome-tweaks
-```
+
 然后在"启动应用程序"中禁用不需要的程序
 
 ### 清理APT缓存
-```
+
 sudo apt clean
 sudo apt autoclean
-```
 
 ### 删除不再需要的依赖包
-```
+
 sudo apt autoremove
-```
 
 ## 2. 文件系统优化
 
@@ -27,22 +23,20 @@ sudo apt autoremove
 考虑将ext4转换为XFS或Btrfs（需要备份数据后重新格式化）
 
 ### 调整swappiness值（减少交换分区使用）
-```
+
 sudo sysctl vm.swappiness=10
-```
+
 要使更改永久生效：
-```
+
 echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
-```
 
 ## 3. 图形性能优化
-
+# 不推荐用这个，直接第四步开始就能很顺畅了
 ### 使用轻量级桌面环境
 考虑安装Xfce或LXQt替代GNOME：
-```
+
 sudo apt install xubuntu-desktop  # Xfce
 sudo apt install lubuntu-desktop  # LXQt
-```
 
 ### 禁用视觉效果
 在"设置" > "外观"中禁用动画和特效
@@ -50,43 +44,36 @@ sudo apt install lubuntu-desktop  # LXQt
 ## 4. 内核优化
 
 ### 使用低延迟内核
-```
+
 sudo apt install linux-lowlatency
-```
 
 ### 更新到最新内核
-```
+
 sudo apt update && sudo apt upgrade
-```
 
 ## 5. 高级优化
 
 ### 使用preload预加载常用程序
-```
+
 sudo apt install preload
-```
 
 ### 使用zRAM替代交换分区
-```
+
 sudo apt install zram-config
-```
 
 ### 优化SSD（如果使用SSD）
-```
+
 sudo apt install gnome-disk-utility
-```
+
 然后在"磁盘"工具中启用TRIM
 
 ## 6. 定期维护
-
 ### 清理旧内核
-```
+
 sudo apt purge $(dpkg -l | awk '/^ii linux-image-*/{print $2}' | grep -v $(uname -r))
-```
 
 ### 清理旧配置文件
-```
+
 sudo apt purge ~c
-```
 
 这些优化应该能显著提升Ubuntu系统的响应速度和整体性能。根据您的硬件配置和使用场景，某些优化可能比其他优化更有效。
