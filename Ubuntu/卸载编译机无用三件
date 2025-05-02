@@ -1,48 +1,38 @@
+完全卸载 GNOME 帮助系统
+方法 1：通过 apt 卸载
+
+sudo apt remove yelp gnome-user-docs ubuntu-docs
+sudo apt autoremove  # 清理残留依赖
+
 在 Ubuntu 中卸载预装的计算器、时钟和 `sysprof`（系统分析工具），可以通过终端命令完成。以下是具体步骤：
 
----
-
 ### **1. 卸载计算器（GNOME Calculator）**
-```bash
-sudo apt remove gnome-calculator
-```
 
----
+sudo apt remove gnome-calculator
 
 ### **2. 卸载时钟（GNOME Clocks）**
-```bash
-sudo apt remove gnome-clocks
-```
 
----
+sudo apt remove gnome-clocks
 
 ### **3. 卸载 Sysprof（系统分析工具）**
-```bash
-sudo apt remove sysprof
-```
 
----
+sudo apt remove sysprof
 
 ### **可选操作**
 - **清理残留配置**（如果需要彻底删除配置）：
-  ```bash
-  sudo apt purge gnome-calculator gnome-clocks sysprof
-  ```
-- **自动移除依赖**（删除不再需要的依赖包）：
-  ```bash
-  sudo apt autoremove
-  ```
 
----
+  sudo apt purge gnome-calculator gnome-clocks sysprof
+
+- **自动移除依赖**（删除不再需要的依赖包）：
+
+  sudo apt autoremove
 
 ### **验证是否卸载成功**
 - 检查软件是否仍在：
-  ```bash
-  dpkg -l | grep -E "gnome-calculator|gnome-clocks|sysprof"
-  ```
-  若无输出，则表示已卸载。
 
----
+  dpkg -l | grep -E "gnome-calculator|gnome-clocks|sysprof"
+
+  若无输出，则表示已卸载。
 
 ### **注意事项**
 1. 确保你有管理员权限（`sudo`）。
