@@ -1,0 +1,31 @@
+升级步骤：
+更新软件包列表（确保获取最新版本信息）：
+
+sudo apt update
+执行升级（升级所有可用的软件包）：
+
+sudo apt upgrade
+系统会列出将要升级的软件包并询问是否继续，输入 Y 并按回车确认。
+
+可选：彻底升级（处理可能的依赖关系变化）：
+
+
+sudo apt full-upgrade
+此命令会解决依赖关系，必要时可能会移除旧包或安装额外依赖。
+
+重启（如涉及内核或GRUB更新）：
+
+如果升级了 grub 或 linux-image 等核心组件，建议重启以应用更改：
+
+
+sudo reboot
+注意事项：
+GRUB升级：如果升级了GRUB（如 grub-common, grub2-common 等），升级过程中可能会提示您选择是否保留当前配置文件。通常建议选择默认选项（保留本地版本或安装维护者的版本）。
+
+Ubuntu Dock扩展：gnome-shell-extension-ubuntu-dock 是桌面环境组件，升级后可能需要重新登录或重启GNOME Shell（按 Alt + F2，输入 r 回车）。
+
+验证升级：
+升级完成后，可以检查已安装的版本：
+
+
+apt list --installed | grep -E "grub|ubuntu-dock|ubuntu-drivers"
