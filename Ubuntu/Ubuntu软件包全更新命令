@@ -29,3 +29,44 @@ Ubuntu Dock扩展：gnome-shell-extension-ubuntu-dock 是桌面环境组件，�
 
 
 apt list --installed | grep -E "grub|ubuntu-dock|ubuntu-drivers"
+
+-----------------------------------------------------------------------------------------
+
+强制升级被推迟的软件包
+运行以下命令忽略阶段更新限制，直接升级所有包：
+
+
+sudo apt upgrade --allow-downgrades
+或更彻底的方式：
+
+
+sudo apt install gnome-shell-extension-ubuntu-dock grub-common grub2-common ubuntu-drivers-common --only-upgrade
+2. 启用所有阶段更新（临时）
+通过修改 APT 配置，临时允许所有阶段更新：
+
+
+echo 'APT::Get::Always-Include-Phased-Updates "true";' | sudo tee /etc/apt/apt.conf.d/99-phased-updates
+sudo apt update
+sudo apt upgrade
+
+3. 检查 Ubuntu Pro 订阅提示
+输出中提到的 esn-apps 是 Ubuntu Pro 的安全扩展服务。如果不需要，可忽略；如需启用（免费最多 5 台机器）：
+
+sudo pro enable esm-apps
+sudo apt update
+sudo apt upgrade
+
+注意事项
+GRUB 升级后：如果升级了 grub-common 或 grub2-common，建议更新引导配置并重启：
+
+sudo update-grub
+sudo reboot
+
+GNOME 扩展问题：如果 Ubuntu Dock 升级后异常，尝试重置 GNOME Shell：
+
+按 Alt + F2，输入 r 回车，或直接注销重新登录。
+
+验证结果
+检查剩余未升级的包：
+
+apt list --upgradable
