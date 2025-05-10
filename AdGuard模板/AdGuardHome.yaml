@@ -6,7 +6,7 @@ http:
   session_ttl: 720h
 users:
   - name: root
-    password: $2a$10$9FP9l4IycVv.fFpoRt.pseHut.5e2IxHWAUjIjVd4q/i6wY1f2vOy
+    password: $2a$10$CLaA.mp2fjbnTOJbSlA2R.f6EX83Gkry1fpz7RL3T0FjEGjgmfmlq
 auth_attempts: 5
 block_auth_min: 15
 http_proxy: ""
@@ -23,9 +23,9 @@ dns:
   ratelimit_whitelist: []
   refuse_any: true
   upstream_dns:
+    - https://dns10.quad9.net/dns-query
     - https://cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
-    - https://dns.quad9.net/dns-query
     - https://doh.opendns.com/dns-query
   upstream_dns_file: ""
   bootstrap_dns:
@@ -112,15 +112,15 @@ filters:
   - enabled: true
     url: https://www.i-dont-care-about-cookies.eu/abp/
     name: 屏蔽网站的 cookies 相关的警告
-    id: 1743250468
+    id: 1746862198
   - enabled: true
     url: https://winhelp2002.mvps.org/hosts.txt
     name: 屏蔽美欧地区英文网站相关的广告
-    id: 1743250469
+    id: 1746862199
   - enabled: true
     url: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
     name: StevenBlack – 屏蔽国外网站广告-国外维护
-    id: 1743250893
+    id: 1746862200
 whitelist_filters: []
 user_rules: []
 dhcp:
@@ -160,9 +160,7 @@ filtering:
   blocking_mode: default
   parental_block_host: family-block.dns.adguard.com
   safebrowsing_block_host: standard-block.dns.adguard.com
-  rewrites:
-    - domain: rustdesk.example.com
-      answer: 192.168.5.157
+  rewrites: []
   safe_fs_patterns:
     - /opt/adguardhome/work/userfilters/*
   safebrowsing_cache_size: 1048576
