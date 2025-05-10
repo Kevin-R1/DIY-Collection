@@ -6,7 +6,7 @@
 - 直接粘贴 AdGuardHome-cn.yaml 内容到模板
 - 重启服务生效
 - 保持默认DNS服务端口（如53）或者通过Web界面（IP：3000端口）更改监听
-- 博主模板已通过Web更改固件自带AdGuardHome:3000管理端口为8551,Docker为8552监听固件自带8553,Docker为8554进行管理界面 ![img.png](img/3.png)
+- 博主模板已通过Web更改固件自带AdGuardHome:3000管理端口为8551,Docker为8552监听固件自带8553,Docker为8554进行管理界面 ![试样](../img/3.png)
 #### 优势：  
 - 系统深度集成  
 - 低资源消耗  
