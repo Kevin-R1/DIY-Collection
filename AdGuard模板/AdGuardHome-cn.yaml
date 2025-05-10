@@ -16,7 +16,7 @@ users:
 auth_attempts: 5
 block_auth_min: 15
 http_proxy: ""
-language: ""
+language: zh-cn
 theme: auto
 dns:
   bind_hosts:
@@ -27,16 +27,14 @@ dns:
   ratelimit_subnet_len_ipv4: 24
   ratelimit_subnet_len_ipv6: 56
   ratelimit_whitelist: []
-  refuse_any: true
+  refuse_any: false
   upstream_dns:
     - https://dns.alidns.com/dns-query
     - 180.184.1.1
   upstream_dns_file: ""
   bootstrap_dns:
-    - 9.9.9.10
-    - 149.112.112.10
-    - 2620:fe::10
-    - 2620:fe::fe:10
+    - 119.29.29.29
+    - 223.5.5.5
   fallback_dns: []
   upstream_mode: parallel
   fastest_timeout: 1s
@@ -52,7 +50,7 @@ dns:
   cache_size: 41943040
   cache_ttl_min: 0
   cache_ttl_max: 0
-  cache_optimistic: false
+  cache_optimistic: true
   bogus_nxdomain: []
   aaaa_disabled: false
   enable_dnssec: false
@@ -83,7 +81,7 @@ tls:
   force_https: false
   port_https: 443
   port_dns_over_tls: 853
-  port_dns_over_quic: 853
+  port_dns_over_quic: 784
   port_dnscrypt: 0
   dnscrypt_config_file: ""
   allow_unencrypted_doh: false
@@ -106,53 +104,121 @@ statistics:
   enabled: true
 filters:
   - enabled: true
+    url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+    name: AdGuard DNS filter
+    id: 1228750870
+  - enabled: true
     url: https://raw.githubusercontent.com/BlueSkyXN/AdGuardHomeRules/master/all.txt
     name: 百万ADH广告拦截过滤规则
-    id: 1737210486
-  - enabled: true
-    url: https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdns.txt
-    name: DNS 拦截
-    id: 1737210487
-  - enabled: true
-    url: https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-easylist.txt
-    name: 目前中文区命中率最高的广告过滤列表，实现了精确的广告屏蔽和隐私保护屏蔽广告域名、电视盒子广告、APP内置广告
-    id: 1744213727
-  - enabled: true
-    url: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/light.txt
-    name: 广告拦截
-    id: 1744213728
+    id: 139789181
   - enabled: true
     url: https://easylist-downloads.adblockplus.org/easylist.txt
     name: EasyList-去除国际网页中大多数广告，包括不需要的框架、图像和对象
-    id: 1744213729
+    id: 139789112
+  - enabled: true
+    url: https://easylist-downloads.adblockplus.org/easylistchina.txt
+    name: EasyList China-EasyList针对国内的补充规则
+    id: 139789121
+  - enabled: true
+    url: https://anti-ad.net/adguard.txt
+    name: anti-AD命中率最高列表
+    id: 139789122
+  - enabled: true
+    url: https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-easylist.txt
+    name: 目前中文区命中率最高的广告过滤列表，实现了精确的广告屏蔽和隐私保护屏蔽广告域名、电视盒子广告、APP内置广告
+    id: 139789131
+  - enabled: true
+    url: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/light.txt
+    name: 广告拦截
+    id: 139789133
+  - enabled: true
+    url: https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
+    name: Peter Lowe’s Ad and tracking server list​
+    id: 139789152
   - enabled: true
     url: https://raw.githubusercontent.com/vokins/yhosts/master/hosts
     name: yhosts – 屏蔽国内网站广告-国内维护
-    id: 1744213730
+    id: 139789153
+  - enabled: true
+    url: https://easylist.to/easylist/fanboy-annoyance.txt
+    name: Fanboy's Annoyance List
+    id: 139789154
+  - enabled: true
+    url: https://secure.fanboy.co.nz/fanboy-cookiemonster.txt
+    name: EasyList Cookie List
+    id: 139789155
+  - enabled: true
+    url: https://fanboy.co.nz/fanboy-antifacebook.txt
+    name: Anti-Facebook List
+    id: 139789161
+  - enabled: true
+    url: https://filters.adtidy.org/extension/ublock/filters/14.txt
+    name: AdGuard Annoyances filter
+    id: 139789162
   - enabled: true
     url: https://www.i-dont-care-about-cookies.eu/abp/
     name: 屏蔽网站的 cookies 相关的警告
-    id: 1744213731
+    id: 139789164
+  - enabled: true
+    url: https://filters.adtidy.org/extension/ublock/filters/3.txt
+    name: AdGuard Tracking Protection filter
+    id: 139789165
+  - enabled: true
+    url: https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdns.txt
+    name: DNS 拦截
+    id: 139789171
+  - enabled: true
+    url: https://filters.adtidy.org/extension/ublock/filters/11.txt
+    name: AdGuard Mobile Ads filter
+    id: 139789172
+  - enabled: true
+    url: https://filters.adtidy.org/extension/ublock/filters/2_without_easylist.txt
+    name: AdGuard Base filter
+    id: 139789173
+  - enabled: true
+    url: https://easylist-downloads.adblockplus.org/antiadblockfilters.txt
+    name: Adblock Warning Removal List
+    id: 139789174
   - enabled: true
     url: https://cdn.jsdelivr.net/gh/cjx82630/cjxlist@master/cjx-annoyance.txt
     name: CJX’s Annoyance List (去自推列表)
-    id: 1744213732
+    id: 139789175
   - enabled: true
-    url: https://cdn.jsdelivr.net/gh/zsakvo/AdGuard-Custom-Rule@master/rule/zhihu-strict.txt
-    name: 知乎过滤器
-    id: 1744213733
+    url: https://adaway.org/hosts.txt
+    name: Adaway HOST
+    id: 139789187
 whitelist_filters:
   - enabled: true
     url: https://raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/allow.txt
     name: 白名单1
-    id: 1737210792
+    id: 1746862722
   - enabled: true
     url: https://raw.githubusercontent.com/BlueSkyXN/AdGuardHomeRules/master/ok.txt
     name: 白名单2
-    id: 1737214025
+    id: 1746862723
 user_rules:
-  - '||blog.csdn.net^$important'
-  - '||www.csdn.net^$important'
+  - '@@||taobao.com^$important'
+  - '@@||tmall.com^$important'
+  - '@@||jd.com^important'
+  - '@@||flyme.cn^$important'
+  - '@@||meizu.com^$important'
+  - '@@||wl.jd.com^$important'
+  - '@@||flydigi.com^'
+  - '@@||pv.sohu.com^$important'
+  - /googleads.$~script,domain=~googleads.github.io
+  - /pagead/lvz?
+  - '||google.com/pagead/'
+  - '||static.doubleclick.net^$domain=youtube.com'
+  - '||youtube.com/get_midroll_'
+  - '||5hz.org^'
+  - '@@||000714.xyz^'
+  - '@@||blueskyxn.com^'
+  - '||topnewsfeeds.net^'
+  - '||nbryb.com^'
+  - '||superbdolly.com^'
+  - '||salutationcheerlessdemote.com^'
+  - '||buildingdoodlesquare.com^'
+  - '||colonistnobilityheroic.com^'
 dhcp:
   enabled: false
   interface_name: ""
@@ -192,7 +258,7 @@ filtering:
   safebrowsing_block_host: standard-block.dns.adguard.com
   rewrites: []
   safe_fs_patterns:
-    - /opt/adguardhome/work/userfilters/*
+    - /tmp/AdGuardHome/data/userfilters/*
   safebrowsing_cache_size: 1048576
   safesearch_cache_size: 1048576
   parental_cache_size: 1048576
@@ -207,7 +273,7 @@ clients:
   runtime_sources:
     whois: true
     arp: true
-    rdns: true
+    rdns: false
     dhcp: true
     hosts: true
   persistent: []
