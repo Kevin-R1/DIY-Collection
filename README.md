@@ -34,3 +34,4 @@ python3 menu.py
 cd script 
 . run.sh
 ```
+打算阿萨德阿斯顿撒 
