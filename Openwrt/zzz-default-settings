@@ -1,0 +1,122 @@
+#!/bin/sh
+
+# ==============================
+# 设置系统时区为 中国上海 (CST-8)
+# 替换NTP时间服务器为国内公共服务器
+# ==============================
+uci -q batch <<-EOF
+	set system.@system[0].timezone='CST-8'
+	set system.@system[0].zonename='Asia/Shanghai'
+	set system.@system[0].hostname='Edge-X'
+
+	delete system.ntp.server
+	add_list system.ntp.server='ntp1.aliyun.com'
+	add_list system.ntp.server='ntp.aliyun.com'
+	add_list system.ntp.server='ntp.tencent.com'
+	add_list system.ntp.server='ntp.ntsc.ac.cn'
+	add_list system.ntp.server='time.apple.com'
+EOF
+uci commit system 
+
+# ==============================
+# 设置默认路由器密码为 password
+# ==============================
+sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+
+# 设置默认IP地址为 192.168.2.1
+# ==============================
+uci set network.lan.ipaddr='192.168.2.10'
+uci set network.lan.netmask='255.255.255.0'
+uci commit network
+# ==============================
+# 设置默认 WiFi 名称为 Edge-X
+# ==============================
+sed -i 's/^option ssid.*/option ssid Edge-X-2.4G/' /etc/config/wireless
+sed -i 's/^option ssid.*/option ssid Edge-X-5G/' /etc/config/wireless
+
+# ==============================
+# 删除Luci状态页面中不需要的模块
+rm -f /usr/lib/lua/luci/view/admin_status/index/mwan.htm
+rm -f /usr/lib/lua/luci/view/admin_status/index/upnp.htm
+rm -f /usr/lib/lua/luci/view/admin_status/index/ddns.htm
+rm -f /usr/lib/lua/luci/view/admin_status/index/minidlna.htm
+
+# 删除Luci资源中对应的JavaScript文件
+rm -f /www/luci-static/resources/view/status/include/70_ddns.js
+rm -f /www/luci-static/resources/view/status/include/80_upnp.js
+
+# 将以下应用从"服务"菜单移动到"NAS"菜单
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/aria2.lua
+sed -i 's/services/nas/g' /usr/lib/lua/luci/view/aria2/overview_status.htm
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/hd_idle.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/samba.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/samba4.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/minidlna.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/transmission.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/mjpg-streamer.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/p910nd.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/usb_printer.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/xunlei.lua
+sed -i 's/services/nas/g'  /usr/lib/lua/luci/view/minidlna_status.htm
+sed -i 's/"services"/"network"/g' /usr/lib/lua/luci/controller/upnp.lua
+sed -i 's/"services"/"network"/g' /usr/lib/lua/luci/controller/ddns.lua
+
+sed -i 's/admin\/services/admin\/vpn/g' /usr/share/luci/menu.d/luci-app-v2raya.json
+sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-samba4.json
+sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-ksmbd.json
+sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-transmission.json
+sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-hd-idle.json
+sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-p910nd.json
+sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-minidlna.json
+sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-alist.json
+sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-aria2.json
+sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-openlist.json
+sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-hd_idle.json
+sed -i 's/admin\/services/admin\/network/g' /usr/share/luci/menu.d/luci-app-upnp.json
+sed -i 's/admin\/services/admin\/network/g' /usr/share/luci/menu.d/luci-app-ddns.json
+
+sed -i 's/admin\/services\/nlbw/admin\/nlbw/g' /usr/share/luci/menu.d/luci-app-nlbwmon.json
+
+# 替换软件源为腾讯云镜像
+
+sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
+#sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/apk/repositories.d/distfeeds.list
+
+# 设置root默认密码为password
+sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+
+# 启用所有软件源（取消注释）
+sed -i "s/# //g" /etc/opkg/distfeeds.conf
+# 移除多余源，将luci源改为稳定版
+sed -i '/helloworld/d' /etc/opkg/distfeeds.conf
+sed -i '/qmodem/d' /etc/opkg/distfeeds.conf
+sed -i '/plugin/d' /etc/opkg/distfeeds.conf
+sed -i '/openwrt_luci/ { s/snapshots/releases\/18.06.9/g; }'  /etc/opkg/distfeeds.conf
+
+# 禁用软件包签名检查
+sed -i '/check_signature/d' /etc/opkg.conf
+
+# 删除防火墙中的DNS重定向规则
+sed -i '/REDIRECT --to-ports 53/d' /etc/firewall.user
+
+# 修改系统版本信息
+sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
+echo "DISTRIB_REVISION='R26.05.12'" >> /etc/openwrt_release
+sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
+echo "DISTRIB_DESCRIPTION='Edge-X '" >> /etc/openwrt_release
+
+# 修改os-release文件
+sed -i '/OPENWRT_RELEASE/d' /usr/lib/os-release
+echo 'OPENWRT_RELEASE="Edge-X R26.05.12"' >> /usr/lib/os-release
+
+# 禁用dnsmasq日志
+sed -i '/log-facility/d' /etc/dnsmasq.conf
+echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
+
+# 清理Luci缓存
+rm -rf /tmp/luci-modulecache/
+rm -f /tmp/luci-indexcache
+
+exit 0

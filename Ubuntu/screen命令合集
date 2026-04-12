@@ -10,8 +10,10 @@ sudo apt install screen -y
 
 ip add show #查看ubuntu的ip
 
+软件商店
 
-
+sudo apt update
+sudo apt install gnome-software
 
 
 screen -S  999    

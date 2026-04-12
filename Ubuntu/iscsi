@@ -1,0 +1,24 @@
+sudo apt update
+sudo apt install open-iscsi -y
+
+sudo iscsiadm -m discovery -t st -p 192.168.X.X
+
+# 使用 fdisk 创建分区 (例如 /dev/sdb)
+sudo fdisk /dev/sdb
+# 输入 n 创建新分区，然后一路按回车，最后输入 w 保存并退出。
+
+# 格式化新创建的分区 (例如 /dev/sdb1)
+sudo mkfs.ext4 /dev/sdb1
+
+
+# 发现 iSCSI 目标
+sudo iscsiadm -m discovery -t st -p <服务器IP>
+
+
+先登录目标：
+sudo iscsiadm -m node -T XXXXXX -p 192.168.5.174 -l
+
+
+
+开机自动挂载
+sudo iscsiadm -m node -T XXXX -p 192.168.5.174 --op update -n node.startup -v automatic
