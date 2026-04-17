@@ -26,7 +26,7 @@ sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:
 
 # 设置默认IP地址为 192.168.2.1
 # ==============================
-uci set network.lan.ipaddr='192.168.2.10'
+uci set network.lan.ipaddr='192.168.2.2'
 uci set network.lan.netmask='255.255.255.0'
 uci commit network
 # ==============================
@@ -75,13 +75,14 @@ sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-openlist
 sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-hd_idle.json
 sed -i 's/admin\/services/admin\/network/g' /usr/share/luci/menu.d/luci-app-upnp.json
 sed -i 's/admin\/services/admin\/network/g' /usr/share/luci/menu.d/luci-app-ddns.json
+sed -i 's/admin\/services/admin\/network/g' /usr/share/luci/menu.d/luci-app-wol.json
 
-sed -i 's/admin\/services\/nlbw/admin\/nlbw/g' /usr/share/luci/menu.d/luci-app-nlbwmon.json
+#sed -i 's/admin\/services\/nlbw/admin\/nlbw/g' /usr/share/luci/menu.d/luci-app-nlbwmon.json
 
 # 替换软件源为腾讯云镜像
 
 sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
-#sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/apk/repositories.d/distfeeds.list
+sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/apk/repositories.d/distfeeds.list
 
 # 设置root默认密码为password
 sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
@@ -92,7 +93,7 @@ sed -i "s/# //g" /etc/opkg/distfeeds.conf
 # 移除多余源，将luci源改为稳定版
 sed -i '/helloworld/d' /etc/opkg/distfeeds.conf
 sed -i '/qmodem/d' /etc/opkg/distfeeds.conf
-sed -i '/plugin/d' /etc/opkg/distfeeds.conf
+sed -i '/Plugin/d' /etc/opkg/distfeeds.conf
 sed -i '/openwrt_luci/ { s/snapshots/releases\/18.06.9/g; }'  /etc/opkg/distfeeds.conf
 
 # 禁用软件包签名检查
