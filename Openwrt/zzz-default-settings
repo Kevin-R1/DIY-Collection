@@ -26,7 +26,7 @@ sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:
 
 # 设置默认IP地址为 192.168.2.1
 # ==============================
-uci set network.lan.ipaddr='192.168.2.2'
+uci set network.lan.ipaddr='192.168.2.1'
 uci set network.lan.netmask='255.255.255.0'
 uci commit network
 # ==============================
@@ -83,6 +83,8 @@ sed -i 's/admin\/services/admin\/network/g' /usr/share/luci/menu.d/luci-app-wol.
 
 sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
 sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/apk/repositories.d/distfeeds.list
+#sed -i 's#downloads.openwrt.org#mirrors.tencent.com/lede#g' /etc/opkg/distfeeds.conf
+#sed -i 's#downloads.openwrt.org#mirrors.tencent.com/lede#g' /etc/apk/repositories.d/distfeeds.list
 
 # 设置root默认密码为password
 sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
