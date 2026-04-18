@@ -18,12 +18,6 @@ uci -q batch <<-EOF
 EOF
 uci commit system 
 
-# ==============================
-# 设置默认路由器密码为 password
-# ==============================
-sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
-sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
-
 # 设置默认IP地址为 192.168.2.1
 # ==============================
 uci set network.lan.ipaddr='192.168.2.1'
@@ -66,7 +60,6 @@ sed -i 's/admin\/services/admin\/vpn/g' /usr/share/luci/menu.d/luci-app-v2raya.j
 sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-samba4.json
 sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-ksmbd.json
 sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-transmission.json
-sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-hd-idle.json
 sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-p910nd.json
 sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-minidlna.json
 sed -i 's/admin\/services/admin\/nas/g' /usr/share/luci/menu.d/luci-app-alist.json
@@ -82,11 +75,14 @@ sed -i 's/admin\/services/admin\/network/g' /usr/share/luci/menu.d/luci-app-wol.
 # 替换软件源为腾讯云镜像
 
 sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
-sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/apk/repositories.d/distfeeds.list
+#sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/apk/repositories.d/distfeeds.list
+
 #sed -i 's#downloads.openwrt.org#mirrors.tencent.com/lede#g' /etc/opkg/distfeeds.conf
 #sed -i 's#downloads.openwrt.org#mirrors.tencent.com/lede#g' /etc/apk/repositories.d/distfeeds.list
 
-# 设置root默认密码为password
+# ==============================
+# 设置默认路由器密码为 password
+# ==============================
 sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
 sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
 
