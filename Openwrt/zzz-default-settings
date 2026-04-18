@@ -17,12 +17,12 @@ uci -q batch <<-EOF
 	add_list system.ntp.server='time.apple.com'
 EOF
 uci commit system 
-
 # 设置默认IP地址为 192.168.2.1
 # ==============================
 uci set network.lan.ipaddr='192.168.2.1'
 uci set network.lan.netmask='255.255.255.0'
 uci commit network
+
 # ==============================
 # 设置默认 WiFi 名称为 Edge-X
 # ==============================
@@ -106,7 +106,6 @@ echo "DISTRIB_REVISION='R26.05.12'" >> /etc/openwrt_release
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='Edge-X '" >> /etc/openwrt_release
 
-# 修改os-release文件
 sed -i '/OPENWRT_RELEASE/d' /usr/lib/os-release
 echo 'OPENWRT_RELEASE="Edge-X R26.05.12"' >> /usr/lib/os-release
 
